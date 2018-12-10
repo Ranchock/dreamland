@@ -173,5 +173,14 @@ public class LoginController extends BaseController {
 
     }
 
+    @RequestMapping("/loginout")
+    public String loginout(Model model) {
+        log.info("退出登录");
+        getSession().removeAttribute("user");
+        getSession().invalidate();
+        return "../index";
+    }
+
+
 
 }

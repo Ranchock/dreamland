@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="${ctx}/css/reply/css/comment.css">
     <link rel="stylesheet" href="${ctx}/css/index.css">
 
+
+    <!--头部and尾部 -->
+    <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/main.css">
+    <%--搜索框--%>
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/search-form.css">
+
 </head>
 <body>
 
@@ -24,11 +32,17 @@
 <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
 <script type="text/javascript" src="${ctx}/css/reply/js/jquery.flexText.js"></script>
 
+
+<br/>
+<%--头部--%>
+<%@ include file="head.jsp"%>
+<br/>
+
 <div class="container">
-    <div style="color: #8f8680">
-        <h1>FootBall land&足球大陆</h1>
-    </div>
-    <div style="position: absolute;margin-left: 980px;margin-top: -40px;">
+    <%--<div style="color: #8f8680">
+        <h1>足球大陆</h1>
+    </div>--%>
+    <%--<div style="position: absolute;margin-left: 980px;margin-top: -40px;">
         <c:if test="${empty user}">
             <a name="tj_login" class="lb" href="login?error=login" style="color: #8f8680">[登录]</a>
             &nbsp;&nbsp;
@@ -40,11 +54,11 @@
             <a name="tj_login" class="lb" href="${ctx}/loginout" style="color: #8f8680">[退出]</a>
         </c:if>
 
-    </div>
+    </div>--%>
 
 
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" >
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
@@ -70,7 +84,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
             </div>
-            <!--<button type="submit" class="btn btn-default">Submit</button>-->
+            <%--<button type="submit" class="btn btn-default">Submit</button>--%>
             &nbsp; &nbsp;<i class="icon icon-search" style="color: white"></i>
         </form>
 
@@ -193,7 +207,7 @@
             </div>
 
 
-            <%@ include file="foot.jsp"%>
+            //尾部
 
 
     <div class="col-md-3" style="position:absolute;top:0px;left: 880px;width: 268px;">
@@ -206,6 +220,8 @@
 
 </div>
 </div>
+
+<%@ include file="foot.jsp"%>
 </body>
 <script language=javascript>
     function  showImg(){
@@ -290,6 +306,127 @@
             }
         });
 
+    //点赞或者踩的点击事件
+    function upvote_click(id,cont) {
+
+        $.ajax({
+            type:'post',
+            url:'/upvote',
+            data:{"id":id,"uid":${user.id},"upvote":cont},
+            dataType:'json',
+            success:function(data) {
+                var up = data["data"];
+                alert(up);
+                if(up == success) {
+                    if(cont == -1) {
+                        var down = document.getElementById("down_"+id);
+                        var num = down.innerHTML;
+                        var value = parseInt(num) + cont;
+                        down.innerHTML = value;
+                    }else {
+                        var num = document.getElementById(id).innerHTML;
+                        var value = parseInt(num) + cont;
+                        document.getElementById(id).innerHTML = value;
+                        document.getElementById("up_"+id).innerHTML = value;
+                    }
+                }else if(up == "done") {
+                    alert("已点赞！")
+                }else if(up == "down") {
+                    alert("已踩！")
+                }else {
+                    window.location.href = "../login";
+                }
+            }
+   });
+    }
+
+    //日期格式化
+    function FormatDate (strTime) {
+        var date = new Date(strTime);
+        var h=date.getHours();       //获取当前小时数(0-23)
+        var m=date.getMinutes();     //获取当前分钟数(0-59)
+        if(m<10) m = '0' + m;
+        var s=date.getSeconds();
+        if(s<10) s = '0' + s;
+        return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+h+':'+m+":"+s;
+    }
+
+
+    //点击评论或者回复图标
+    function reply(id,uid) {
+        $("div").remove("#comment_reply_"+id+" .comment-show");
+        $("div").remove("#comment_reply_"+id+" .comment-show-con");
+        if(showdiv_display = document.getElementById('comment_reply_'+id).style.display=='none'){//如果show是隐藏的
+
+            document.getElementById('comment_reply_'+id).style.display='block';//show的display属性设置为block（显示）
+            $.ajax({
+                type:'post',
+                url:'/reply',
+                data: {"content_id":id},
+                dataType:'json',
+                success:function(data){
+                    var list =  data["list"];
+
+                    var okHtml;
+                    if(list!=null && list!=""){
+                        $(list).each(function () {
+                            var chtml = "<div class='comment-show'>"+
+                                "<div class='comment-show-con clearfix'>"+
+                                "<div class='comment-show-con-img pull-left'><img src='"+this.user.imgUrl+"' alt=''></div>"+
+                                "<div class='comment-show-con-list pull-left clearfix'>"+
+                                "<div class='pl-text clearfix'>"+
+                                "<a  class='comment-size-name'>"+this.user.nickName+" :</a>"+
+                                "<span class='my-pl-con'>&nbsp;"+this.comContent+"</span>"+
+                                "</div> <div class='date-dz'><span class='date-dz-left pull-left comment-time'>"+FormatDate(this.commTime)+"</span>"+
+                                "<div class='date-dz-right pull-right comment-pl-block'>"+
+                                "<a onclick='deleteComment("+id+","+uid+","+this.id+",null)' id='comment_dl_"+this.id+"' style='cursor:pointer' class='removeBlock'>删除</a>"+
+                                "<a style='cursor:pointer' onclick='comment_hf("+id+","+this.id+","+null+","+this.user.id+","+uid+")' id='comment_hf_"+this.id+"' class='date-dz-pl pl-hf hf-con-block pull-left'>回复</a>"+
+                                "<span class='pull-left date-dz-line'>|</span>"+
+                                "<a onclick='reply_up("+this.id+")' style='cursor:pointer' class='date-dz-z pull-left' id='change_color_"+this.id+"'><i class='date-dz-z-click-red'></i>赞 (<i class='z-num' id='comment_upvote_"+this.id+"'>"+this.upvote+"</i>)</a>"+
+                                "</div> </div> <div class='hf-list-con' id='hf-list-con-"+this.id+"'>";
+
+
+                            var ehtml =   "</div> </div> </div></div>";
+                            var parentComm_id = this.id;
+
+                            okHtml = chtml;
+                            //alert(this.children)
+                            if(this.children != null && this.children != ''){
+                                var commentList = this.comList;
+                                $(commentList).each(function () {
+                                    // alert(this.id);
+                                    var oHtml = "<div class='all-pl-con'><div class='pl-text hfpl-text clearfix'>"+
+                                        "<a class='comment-size-name'>"+this.user.nickName+"<a class='atName'>@"+this.byUser.nickName+" :</a> </a>"+
+                                        "<span class='my-pl-con'>"+this.comContent+"</span>"+
+                                        "</div><div class='date-dz'> <span class='date-dz-left pull-left comment-time'>"+FormatDate(this.commTime)+"</span>"+
+                                        "<div class='date-dz-right pull-right comment-pl-block'>"+
+                                        "<a style='cursor:pointer' onclick='deleteComment("+id+","+uid+","+this.id+","+parentComm_id+")' id='comment_dl_"+this.id+"' class='removeBlock'>删除</a>"+
+                                        "<a onclick='comment_hf("+id+","+this.id+","+parentComm_id+","+this.user.id+","+uid+")' id='comment_hf_"+this.id+"' style='cursor:pointer' class='date-dz-pl pl-hf hf-con-block pull-left'>回复</a> <span class='pull-left date-dz-line'>|</span>"+
+                                        "<a onclick='reply_up("+this.id+")' id='change_color_"+this.id+"' style='cursor:pointer' class='date-dz-z pull-left'><i class='date-dz-z-click-red'></i>赞 (<i class='z-num' id='comment_upvote_"+this.id+"'>"+this.upvote+"</i>)</a>"+
+                                        "</div></div> </div>";
+
+                                    okHtml = okHtml + oHtml;
+                                });
+
+
+                            }
+
+                            okHtml = okHtml+ehtml;
+                            $("#comment-show-" + id).append(okHtml);
+
+                        });
+                    }
+
+                }
+            });
+
+
+        }else{//如果show是显示的
+
+            document.getElementById('comment_reply_'+id).style.display='none';//show的display属性设置为none（隐藏）
+
+        }
+    }
 
 </script>
 
