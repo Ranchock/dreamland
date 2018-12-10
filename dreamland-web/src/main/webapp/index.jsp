@@ -178,7 +178,7 @@
 
 
 
-            <!--分页信息-->
+            <!--分页信息..-->
             <div id="page-info" style="position: absolute;width:855px;background-color: #EBEBEB;height: 80px;left: 0px;">
                 <ul class="pager pager-loose">
                     <c:if test="${page.pageNum <= 1}">
