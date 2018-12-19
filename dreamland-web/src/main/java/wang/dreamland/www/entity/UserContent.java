@@ -1,8 +1,11 @@
 package wang.dreamland.www.entity;
 
+import wang.dreamland.www.common.DateUtils;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Date;
 
 public class UserContent {
@@ -31,6 +34,22 @@ public class UserContent {
     private Integer commentNum;
 
     private String content;
+
+    @Transient
+    private  Integer num;
+
+    @Transient
+    public String getFormatDate(){
+        return DateUtils.formatDate(getRptTime(),"yyyy-MM-dd HH:mm:ss");
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
 
     public Long getId() {
         return id;

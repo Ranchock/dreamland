@@ -1,5 +1,6 @@
 package wang.dreamland.www.service.impl;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -22,8 +23,8 @@ public class UserContentServiceImpl implements UserContentService {
     private UserContentMapper userContentMapper;
     @Autowired
     private CommentMapper commentMapper;
-    public void addContent(UserContent content) {
-        userContentMapper.insert( content );
+    public int addContent(UserContent content) {
+       return userContentMapper.inserContent( content );
     }
 
     public List<UserContent> findByUserId(Long uid) {
@@ -63,6 +64,17 @@ public class UserContentServiceImpl implements UserContentService {
         return endPage;
     }
 
+    @Override
+    public Page<UserContent> findAll(Integer pageNum, Integer pageSize) {
+        //分页查询
+        PageHelper.startPage(pageNum, pageSize);//开始分页
+        Example e = new Example(UserContent.class);
+        e.setOrderByClause("rpt_time DESC");
+        List<UserContent> list =  userContentMapper.selectByExample(e);
+        Page endPage = PageHelper.endPage();//分页结束
+        return endPage;
+    }
+
     public Page<UserContent> findAllByUpvote(UserContent content, Integer pageNum, Integer pageSize) {
         Example e = new Example(UserContent.class);
         e.setOrderByClause("upvote DESC");
@@ -80,6 +92,43 @@ public class UserContentServiceImpl implements UserContentService {
 
     public void updateById(UserContent content) {
         userContentMapper.updateByPrimaryKeySelective( content );
+    }
+
+    @Override
+    public List<UserContent> findCategoryByUid(Long uid) {
+        return userContentMapper.findCategoryByUid(uid);
+    }
+
+    @Override
+    public Page<UserContent> findByCategory(String category, Long uid, Integer pageNum, Integer pageSize) {
+        UserContent userContent = new UserContent();
+        if(StringUtils.isNotBlank(category) && !"null".equals(category)) {
+            userContent.setCategory(category);
+        }
+        userContent.setuId(uid);
+        userContent.setPersonal("0");
+        //开始分页
+        PageHelper.startPage(pageNum,pageSize);
+        userContentMapper.select(userContent);
+        //分页结束
+        Page endPage = PageHelper.endPage();
+        return endPage;
+    }
+
+    @Override
+    public Page<UserContent> findPersonal(Long uid, Integer pageNum, Integer pageSize) {
+        UserContent userContent = new UserContent();
+        userContent.setuId(uid);
+        userContent.setPersonal("1");
+        PageHelper.startPage(pageNum, pageSize);//开始分页
+        userContentMapper.select(userContent);
+        Page endPage = PageHelper.endPage();//分页结束
+        return endPage;
+    }
+
+    @Override
+    public void deleteById(Long cid) {
+        userContentMapper.deleteByPrimaryKey(cid);
     }
 
 

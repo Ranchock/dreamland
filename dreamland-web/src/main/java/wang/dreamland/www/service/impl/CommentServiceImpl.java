@@ -43,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     public List<Comment> findAllChildrenComment(Long cid, String children) {
-        return findAllChildrenComment(cid,children);
+        return commentMapper.findAllChildrenComment(cid,children);
     }
 
     public void deleteById(Long id) {
@@ -63,6 +63,13 @@ public class CommentServiceImpl implements CommentService {
         }
         criteria.andIn( "id",list );
         commentMapper.deleteByExample(example);
+    }
+
+    @Override
+    public void deleteByContentId(Long cid) {
+        Comment comment = new Comment();
+        comment.setConId(cid);
+        commentMapper.delete(comment);
     }
 
 }

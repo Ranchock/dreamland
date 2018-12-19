@@ -75,10 +75,16 @@ public class BaseController {
         return page;
     }
 
+    public Page<UserContent> findAll(Integer pageNum, Integer pageSize){
+        Page<UserContent> page = userContentService.findAll(pageNum ,pageSize);
+        return page;
+    }
+
     public Page<UserContent> findAllByUpvote(UserContent content, Integer pageNum, Integer pageSize){
         Page<UserContent> page = userContentService.findAllByUpvote( content,pageNum ,pageSize);
         return page;
     }
+
     /**
      * 获取request
      * @return
@@ -123,6 +129,8 @@ public class BaseController {
         }
         return request.getRemoteAddr();
     }
+
+
 
 
 }

@@ -5,11 +5,9 @@
 <mapper namespace="wang.dreamland.www.dao.CommentMapper">
 
     <!-- 查看全部评论 -->
-    <select id="selectAll" resultMap="commentMap">
-        select c.id,c.children,c.con_id,c.com_id,c.by_id,c.upvote,c.comm_time,c.com_content,u.id
-        as uid,u.email,u.password,u.nick_name,u.phone,u.state,u.img_url,u.enable
-        from comment c,user u
-        WHERE con_id = #{cid} and c.com_id = u.id order by id desc
+    <select id="selectAll"  resultMap="commentMap">
+        select c.id,c.children,c.con_id,c.com_id,c.by_id,c.upvote,c.comm_time,c.com_content,u.id as uid,u.email,u.password,u.nick_name,u.phone,u.state,u.img_url,u.enable
+        from comment c,user u WHERE con_id = #{cid} and c.com_id = u.id order by id desc
     </select>
 
     <resultMap type="wang.dreamland.www.entity.Comment" id="commentMap">
@@ -38,7 +36,6 @@
         insert into comment(id, con_id, com_id, by_id, com_content, upvote, comm_time,children) values(#{id}, #{conId},#{comId}, #{byId},#{comContent},#{upvote}, #{commTime},#{children})
     </insert>
 
-    <!-- 查询所有一级评论 -->
     <select id="findAllFirstComment"  resultMap="firstCommentMap">
         select c.id,c.children,c.con_id,c.com_id,c.by_id,c.upvote,c.comm_time,c.com_content,u.id as uid,u.email,u.password,u.nick_name,u.phone,u.state,u.img_url,u.enable
         from comment c,user u WHERE con_id = #{cid} and by_id is null and c.com_id = u.id order by id desc
@@ -66,7 +63,7 @@
         </association>
     </resultMap>
 
-    <!-- 查询所有子评论 -->
+    <!--查询所有子评论-->
     <select id="findAllChildrenComment"  resultMap="childCommentMap">
         select c.id,c.children,c.con_id,c.com_id,c.by_id,c.upvote,c.comm_time,c.com_content,u.id as uid,u.email,u.password,u.nick_name,u.phone,u.state,u.img_url,u.enable
         from comment c,user u WHERE con_id = #{cid}
@@ -98,5 +95,6 @@
             <result column="enable" property="enable" />
         </association>
     </resultMap>
+
 
 </mapper>

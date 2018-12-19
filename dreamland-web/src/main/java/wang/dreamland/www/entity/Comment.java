@@ -3,7 +3,9 @@ package wang.dreamland.www.entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Date;
+import java.util.List;
 
 public class Comment {
     @Id //标识主键
@@ -23,6 +25,39 @@ public class Comment {
     private Integer upvote;
 
     private String comContent;
+
+    @Transient
+    private User user; //评论者
+
+    @Transient
+    private User byUser; //被评论者
+
+    @Transient
+    private List<Comment> comList; //子评论列表
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getByUser() {
+        return byUser;
+    }
+
+    public void setByUser(User byUser) {
+        this.byUser = byUser;
+    }
+
+    public List<Comment> getComList() {
+        return comList;
+    }
+
+    public void setComList(List<Comment> comList) {
+        this.comList = comList;
+    }
 
     public Long getId() {
         return id;

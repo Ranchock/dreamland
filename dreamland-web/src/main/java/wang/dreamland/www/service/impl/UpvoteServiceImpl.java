@@ -16,7 +16,7 @@ public class UpvoteServiceImpl implements UpvoteService {
 
 
     public Upvote findByUidAndConId(Upvote upvote) {
-      return  upvoteMapper.selectOne( upvote);
+        return  upvoteMapper.selectOne( upvote);
     }
 
     public int add(Upvote upvote) {
@@ -29,5 +29,12 @@ public class UpvoteServiceImpl implements UpvoteService {
 
     public void update(Upvote upvote) {
         upvoteMapper.updateByPrimaryKey( upvote );
+    }
+
+    @Override
+    public void deleteByContentId(Long cid) {
+        Upvote upvote = new Upvote();
+        upvote.setContentId(cid);
+        upvoteMapper.delete(upvote);
     }
 }

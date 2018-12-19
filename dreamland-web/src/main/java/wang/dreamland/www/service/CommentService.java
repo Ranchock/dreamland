@@ -15,27 +15,27 @@ public interface CommentService {
      * @param comment
      * @return
      */
-   int add(Comment comment);
+    int add(Comment comment);
 
 
     /**
      * 更新评论
      * @param comment
      */
-   void update(Comment comment);
+    void update(Comment comment);
 
     /**
      * 根据文章id查询所有评论
      * @return
      */
-  List<Comment> findAll(Long content_id);
+    List<Comment> findAll(Long content_id);
 
     /**
      * 根据id查询评论
      * @param id
      * @return
      */
-  Comment findById(Long id);
+    Comment findById(Long id);
 
     /**
      * 根据文章id查询所有父评论
@@ -59,4 +59,10 @@ public interface CommentService {
      * @param children
      */
     void deleteChildrenComment(String children);
+
+    /**
+     * 根据文章id删除评论
+     * @param cid
+     */
+    void deleteByContentId(Long cid);
 }
