@@ -6,82 +6,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>写梦</title>
+    <title>写文章</title>
+    <link href="${ctx}/css/write/writedream.css" rel="stylesheet"/>
+
     <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
     <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
     <script src="${ctx}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
-    <style>
-        body,html{
-            background-color: #EBEBEB;
-            padding: 0;
-            margin: 0;
-            height:100%;
-        }
-        .writedream-context{
-            background-color: white;
-            margin-top: 30px;
-            margin-left: 30px;
-            margin-right: 30px;
-            min-height:800px;
-        }
-
-    </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid" style="background-color: #2f2f2f">
-        <!-- 导航头部 -->
-        <div class="navbar-header">
-            <!-- 移动设备上的导航切换按钮 -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-example">
-                <span class="sr-only">切换导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- 品牌名称或logo -->
-            <a class="navbar-brand" href="${ctx}/list?id=${user.id}">个人空间</a>
-        </div>
-        <!-- 导航项目 -->
-        <div class="collapse navbar-collapse navbar-collapse-example">
-            <!-- 一般导航项目 -->
-            <ul class="nav navbar-nav">
-                <li><a href="#">我的梦</a></li>
-                <li><a href="${ctx}/index_list">首页</a></li>
-                ...
-                <!-- 导航中的下拉菜单 -->
-                <li class="dropdown">
-                    <a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">设置 <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="your/nice/url">任务</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="your/nice/url">消息</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav">
-                <li style="background-color: black"><a href="javascript:void(0);">写梦</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav" style="margin-left: 680px">
-                <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
-
-                </a></li>
-            </ul>
-            <img src="images/q.png" width="30" style="margin-top: 4px"/>
-        </div><!-- END .navbar-collapse -->
-    </div>
-
-</nav>
+<%--头部--%>
+<%@ include file="head.jsp"%>
 
 <!--中间内容-->
 <form id="write_form" name="w_form" role="w_form" class="writedream-form" action="doWritedream?cid=${cont.id}" method="post">
-<div class="writedream-context">
+<div class="writedream-context" style="margin-left: 360px;">
     <div style="margin-top: 20px;margin-left: 20px;position: absolute;">
         <div class="dropdown dropdown-hover">
             <button class="btn" type="button" data-toggle="dropdown" id="dream-diff" style="background-color:#EBEBEB"><span id="fen" >

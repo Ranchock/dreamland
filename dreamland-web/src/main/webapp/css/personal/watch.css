@@ -1,5 +1,4 @@
 body,html{
-    /*background: url("/images/bj_index2.jpg") no-repeat center fixed;*/
     background-color: white;
     padding: 0;
     margin: 0;
@@ -98,4 +97,10 @@ fieldset, img {
 
 .commentAll{
     margin-left: 5px;
+}
+.update-dream{
+    margin-left: 820px;
+}
+.update-dream a{
+    text-decoration:none;
 }

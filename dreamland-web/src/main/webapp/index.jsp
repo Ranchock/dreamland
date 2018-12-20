@@ -20,10 +20,7 @@
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
-    <%--&lt;%&ndash;搜索框&ndash;%&gt;--%>
-    <%--<link rel="stylesheet" type="text/css" href="../css/default.css">--%>
-    <%--<link rel="stylesheet" type="text/css" href="../css/search-form.css">--%>
-
+    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
 </head>
 <body>
 
@@ -33,31 +30,12 @@
 <script type="text/javascript" src="${ctx}/css/reply/js/jquery.flexText.js"></script>
 
 
-<br/>
 <%--头部--%>
 <%@ include file="head.jsp"%>
 <br/>
 
+
 <div class="container">
-    <%--<div style="color: #8f8680">
-        <h1>足球大陆</h1>
-    </div>--%>
-    <%--<div style="position: absolute;margin-left: 980px;margin-top: -40px;">
-        <c:if test="${empty user}">
-            <a name="tj_login" class="lb" href="login?error=login" style="color: #8f8680">[登录]</a>
-            &nbsp;&nbsp;
-            <a name="tj_login" class="lb" href="register" style="color: #8f8680">[注册]</a>
-        </c:if>
-        <c:if test="${not empty user}">
-            <a name="tj_loginp" href="javascript:void(0);"   class="lb" onclick="personal('${user.id}');" style="color: #8f8680"><font color="#9370db">${user.nickName}, 欢迎您！</font></a>
-            &nbsp;&nbsp;
-            <a name="tj_login" class="lb" href="${ctx}/loginout" style="color: #8f8680">[退出]</a>
-        </c:if>
-
-    </div>--%>
-
-
-
     <nav class="navbar navbar-inverse" >
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -67,19 +45,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="javascript:void(0);">首页</a>
+            <%--<a class="navbar-brand" href="javascript:void(0);">最爱</a>--%>
         </div>
         <div id="navbar-menu" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav" >
-                <li class="active"><a href="#">热门步行街</a></li>
-                <li><a href="#">最新推荐</a></li>
-                <li><a href="#">简介</a></li>
-                <li><a href="#">问答</a></li>
-                <li><a href="#">我的文章</a></li>
-                <li><a href="${ctx}/list?id=${user.id}">个人空间</a></li>
+                <li ><a href="#">西甲联赛</a></li>&nbsp
+                <li><a href="#">意甲联赛</a></li>&nbsp
+                <li><a href="#">法甲联赛</a></li>&nbsp
+                <li><a href="#">德甲联赛</a></li>&nbsp
+                <li><a href="#">英超联赛</a></li>&nbsp
+                <li><a href="#">尤文图斯</a></li>&nbsp
             </ul>
         </div>
-
+        <!-- 搜索框 -->
         <form class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search">
@@ -91,13 +69,11 @@
     </nav>
 
     <div id="content" class="row-fluid">
-        <div class="col-md-9"  style="background-color: #ebe2dd;">
+        <div class="col-md-9"  style="background-color: #d8d8d8;">
             <div id="content_col" class="content-main">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <!-- 正文开始 -->
-
                     <div class="content-text">
-
                         <div class="author clearfix">
                             <div>
                                 <a href="#" target="_blank" rel="nofollow" style="height: 35px">
@@ -119,7 +95,7 @@
                             ${cont.content}
                         <div style="height: 5px"></div>
                         <div class="stats">
-                            <!-- 笑脸、评论数等 -->
+                            <!-- 点赞数、评论数 -->
                             <span class="stats-vote"><i id="${cont.id}" class="number">${cont.upvote}</i> 赞</span>
                             <span class="stats-comments">
                     <span class="dash"> · </span>
@@ -229,7 +205,7 @@
 
 <%@ include file="foot.jsp"%>
 </body>
-<script language=javascript>
+<script>
     function  showImg(){
         document.getElementById("wxImg").style.display='block';
     }
@@ -580,5 +556,4 @@
     }
 
 </script>
-
 </html>

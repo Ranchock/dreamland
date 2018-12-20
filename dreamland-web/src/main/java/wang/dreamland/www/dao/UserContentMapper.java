@@ -25,5 +25,11 @@ public interface UserContentMapper extends Mapper<UserContent> {
      */
     int inserContent(UserContent userContent);
 
+    /**
+     * user_content与user连接查询
+     * @return
+     */
+    List<UserContent> findByJoin(UserContent userContent);
+
 
 }

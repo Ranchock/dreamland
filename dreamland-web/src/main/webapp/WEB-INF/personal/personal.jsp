@@ -19,7 +19,7 @@
     <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
     <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/personal.css" rel="stylesheet"/>
+    <link href="${ctx}/css/personal/personal.css" rel="stylesheet"/>
     <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
@@ -31,58 +31,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-        <!-- 导航头部 -->
-        <div class="navbar-header">
-            <!-- 移动设备上的导航切换按钮 -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-example">
-                <span class="sr-only">切换导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- 品牌名称或logo -->
-            <a class="navbar-brand" href="javascript:void(0);">个人空间</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </div>
-        <!-- 导航项目 -->
-        <div class="collapse navbar-collapse navbar-collapse-example">
-            <!-- 一般导航项目 -->
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="your/nice/url">我的博客</a></li>&nbsp;&nbsp;
-                <li><a href="${ctx}/index_list">首页</a></li>
+<%--头部--%>
+<%@ include file="head.jsp"%>
 
-                <!-- 导航中的下拉菜单 -->
-                <%--<li class="dropdown">--%>
-                    <%--<a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">设置 <b class="caret"></b></a>--%>
-                    <%--<ul class="dropdown-menu" role="menu">--%>
-                        <%--<li><a href="your/nice/url">任务</a></li>--%>
-                    <%--</ul>--%>
-                <%--</li>--%>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="your/nice/url">消息</a></li>&nbsp;&nbsp;
-            </ul>
-
-            <ul class="nav navbar-nav">
-                <li><a href="${ctx}/writedream?id=${user.id}">发博</a></li>
-            </ul>
-            <ul class="nav navbar-nav" style="margin-left: 680px">
-                <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
-
-                </a></li>
-            </ul>
-            <img src="images/q.png" width="30" style="margin-top: 4px"/>
-        </div>
-    </div>
-
-</nav>
     <!-- 左侧菜单栏-->
 <div class="author-card follow-box">
-    <div class="designer-card card-media">
-
+    <div class="designer-card card-media" style="margin-left: 380px;" >
         <input type="hidden" name="creator" value="13149346">
-        <div class="avatar-container-80 center">
+        <div class="avatar-container-80 center" >
             <a href="#" title="${user.nickName}" class="avatar" target="_blank">
                 <img src="${user.imgUrl}" width="80" height="80" alt="">
             </a>
@@ -138,12 +94,14 @@
             </div>
 
             <div style="float: left;margin-top: 40px; margin-left: 130px;">
-                <a href="${ctx}/profile?id=${user.id}"><i class="icon icon-edit"></i><span style="margin-left: 10px">修改个人资料</span></a>
+                <a href="${ctx}/profile"><i class="icon icon-edit"></i><span style="margin-left: 10px">修改个人资料</span></a>
             </div>
         </div>
     </div>
+
+
     <!-- 梦分类 -->
-    <div class="dreamland-diff">
+    <div class="dreamland-diff" style="margin-left: 0px;left: 430px;" >
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">博文分类</font>
         </div>
@@ -157,7 +115,7 @@
     </div>
 
     <!-- 关注 -->
-    <div class="dreamland-see" id="dreamland-see" style="margin-top: 510px">
+    <div class="dreamland-see" id="dreamland-see" style=" margin-top: 650px;margin-left: 0px;left: 430px;">
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">关注(8人)</font>
         </div>
@@ -177,7 +135,7 @@
     </div>
 
     <!--被关注-->
-    <div class="dreamland-bysee">
+    <div class="dreamland-bysee" style="margin-left: 0px;left: 430px;">
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">被关注(8人)</font>
         </div>
@@ -349,9 +307,7 @@
             </ul>
             </div>
         </div>
-
         <div style="background-color: #EBEBEB;width:800px;height: 20px">
-
         </div>
 
         <!-- 热门博文 -->
@@ -411,120 +367,6 @@
 <div class="ibx-advice" onmouseover="changeBackColor();" onmouseout="back2color();">
     <a href="${ctx}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写梦"></span></a>
 </div>
-
-<!--底部-->
-<div class="foot" style="position: absolute;left: 0px;float: left;margin-top: 1920px;width: 100% ;height: 280px;background-color: #5e5e5e">
-
-    <div style="margin-left: 400px;color: white">
-        <div class="foot-nav clearfix">
-            <div class="foot-nav-col">
-                <h3>
-                    关于
-                </h3>
-                <ul style="color: white">
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            关于梦境网
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            加入我们
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            联系方式
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="foot-nav-col">
-                <h3>
-                    帮助
-                </h3>
-                <ul style="color: white">
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            在线反馈
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            用户协议
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="nofollow" style="color: white">
-                            隐私政策
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="foot-nav-col">
-                <h3>
-                    下载
-                </h3>
-                <ul style="color: white">
-                    <li>
-                        <a href=""
-                           target="_blank" rel="external nofollow" style="color: white">
-                            Android 客户端
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" rel="external nofollow" style="color: white">
-                            iPhone 客户端
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="foot-nav-col">
-                <h3>
-                    关注
-                </h3>
-                <ul style="color: white">
-                    <li>
-                        <a href="http://www.dreamland.wang" onMouseOut="hideImg()"  onmouseover="showImg()" style="color: white">
-                            微信
-                            <div id="wxImg" style="display:none;height:50px;back-ground:#f00;position:absolute;color: white">
-                                <img src="images/dreamland.png"/><br/>
-                                手机扫描二维码关注
-                            </div>
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="external nofollow" style="color: white">
-                            新浪微博
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" rel="external nofollow" style="color: white">
-                            QQ空间
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- rgba(60,63,65,0.31)-->
-        <hr style="position: absolute;background-color: rgba(161,171,175,0.31);width: 100%;height: 1px;left: 0px;margin-top: 10px"/>
-
-        <div class="foot-nav clearfix" style="position: absolute;left: 0px;margin-top: 20px;margin-left: 400px;text-align: center">
-            <div class="foot-copyrights" style="margin-left: 100px">
-                <p style="color: white;font-size: 12px">
-                    互联网ICP备案：京ICP备xxxxxx号-1
-                </p>
-                <p>
-                    <span style="color: white;font-size: 12px">违法和不良信息举报电话：010-xxxxxxx</span>
-                    <span style="color: white">邮箱：xxx@dreamland.wang</span>
-                </p>
-                <p style="margin-top: 8px;color: white;font-size: 12px">&copy;www.dreamland.wang 梦境网版权所有</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 </body>
 <script>
