@@ -27,7 +27,7 @@
 
     <!-- -->
 <div style="margin-left: 100px;margin-top: 80px;" class="main-content">
-    <div style="width: 300px;height: 600px;background-color:#D1D1D1 ;float: left">
+    <div style="width: 300px;height: 600px;background-color:#D1D1D1 ;float: left;margin-left: 340px">
         <div>
         <div class="personal-image" style="width: 300px;height: 240px;">
 

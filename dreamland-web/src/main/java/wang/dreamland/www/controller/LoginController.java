@@ -37,9 +37,9 @@ public class LoginController extends BaseController {
     @Autowired// redis数据库操作模板
     private RedisTemplate<String, String> redisTemplate;// jdbcTemplate HibernateTemplate
 
-    @Autowired
+    /*@Autowired
     @Qualifier("jmsQueueTemplate")
-    private JmsTemplate jmsTemplate;// mq消息模板.
+    private JmsTemplate jmsTemplate;// mq消息模板.*/
 
     @RequestMapping("/login")
     public String login(Model model) {
@@ -145,10 +145,10 @@ public class LoginController extends BaseController {
     /**
      * 发送手机验证码
      * @param model
-     * @param telephone
+//     * @param telephone
      * @return
      */
-    @RequestMapping("/sendSms")
+   /* @RequestMapping("/sendSms")
     @ResponseBody
     public Map<String,Object> index(Model model, @RequestParam(value = "telephone",required = false) final String telephone ) {
         Map map = new HashMap<String,Object>(  );
@@ -171,7 +171,9 @@ public class LoginController extends BaseController {
         map.put( "msg",true );
         return map;
 
-    }
+    }*/
+
+
 
     @RequestMapping("/loginout")
     public String loginout(Model model) {

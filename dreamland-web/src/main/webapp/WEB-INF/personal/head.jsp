@@ -22,25 +22,17 @@
         <div class="collapse navbar-collapse navbar-collapse-example">
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
-                <li class="active"><a href="your/nice/url">我的博客</a></li>&nbsp;&nbsp;
-                <li><a href="${ctx}/index_list">首页</a></li>
-
-                <!-- 导航中的下拉菜单 -->
-                <%--<li class="dropdown">--%>
-                <%--<a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">设置 <b class="caret"></b></a>--%>
-                <%--<ul class="dropdown-menu" role="menu">--%>
-                <%--<li><a href="your/nice/url">任务</a></li>--%>
-                <%--</ul>--%>
-                <%--</li>--%>
+                <li class="active"><a href="your/nice/url">人生就怕坐上四艘船：一艘为名；一艘为利；一艘为色，一艘为气。</a></li>&nbsp;&nbsp;
+                <li style="margin-left: 250px"><a href="${ctx}/index_list">博客首页</a></li>
             </ul>
-            <ul class="nav navbar-nav">
-                <li><a href="your/nice/url">消息</a></li>&nbsp;&nbsp;
+            <ul class="nav navbar-nav" >
+                <li><a href="your/nice/url">个人简介</a></li>&nbsp;&nbsp;
             </ul>
 
             <ul class="nav navbar-nav">
-                <li><a href="${ctx}/writedream?id=${user.id}">发博</a></li>
+                <li><a href="${ctx}/writedream?id=${user.id}">写博客</a></li>
             </ul>
-            <ul class="nav navbar-nav" style="margin-left: 680px">
+            <ul class="nav navbar-nav" style="margin-left: 200px">
                 <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
 
                 </a></li>

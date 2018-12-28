@@ -79,10 +79,10 @@
 
 
                 <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 20px">
-                    <span style="color: white;font-size: 12px">梦博</span>
+                    <span style="color: white;font-size: 12px">文章</span>
                 </div>
                 <div style="width: 18px;height: 18px;background-color: #2b542c;float: left;line-height: 15px;margin-top: 30px;">
-                    <span style="color: white;font-size: 12px">2</span>
+                    <span style="color: white;font-size: 12px">${page.total}</span>
                 </div>
 
                 <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 20px">
@@ -120,15 +120,48 @@
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">关注(8人)</font>
         </div>
         <br/>
-        <div class="author clearfix" style="margin-left: 10px">
+        <div class="author clearfix" style="border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
             <div>
                 <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
-                     <img src="images/icon_m.jpg">
+                     <img src="images/touxiang/yzq.jpg" style="margin-left: 15px;margin-top: 15px;">
                 </a>
             </div>
             <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                   袁智强
+                </h2>
                 <h2 class="author-h2">
-                   白龙马
+                    大数据专家
+                </h2>
+            </a>
+        </div>
+        <div class="author clearfix" style="margin-top:10px;border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
+            <div>
+                <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
+                     <img src="images/touxiang/tx4.jpg" style="margin-left: 15px;margin-top: 15px;">
+                </a>
+            </div>
+            <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                    王聂文
+                </h2>
+                <h2 class="author-h2">
+                    Java高级工程师
+                </h2>
+            </a>
+        </div>
+        <div class="author clearfix" style="margin-top:10px;border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
+            <div>
+                <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
+                     <img src="images/touxiang/tx3.jpg" style="margin-left: 15px;margin-top: 15px;">
+                </a>
+            </div>
+            <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                    李文杰
+                </h2>
+                <h2 class="author-h2">
+                    数据库管理员
                 </h2>
             </a>
         </div>
@@ -140,15 +173,48 @@
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">被关注(8人)</font>
         </div>
         <br/>
-        <div class="author clearfix" style="margin-left: 10px">
+        <div class="author clearfix" style="border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
             <div>
                 <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
-                     <img src="images/icon_m.jpg">
+                     <img src="images/touxiang/yzq.jpg" style="margin-left: 15px;margin-top: 15px;">
                 </a>
             </div>
             <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                    袁智强
+                </h2>
                 <h2 class="author-h2">
-                    白龙马
+                    大数据专家
+                </h2>
+            </a>
+        </div>
+        <div class="author clearfix" style="margin-top:10px;border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
+            <div>
+                <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
+                     <img src="images/touxiang/tx4.jpg" style="margin-left: 15px;margin-top: 15px;">
+                </a>
+            </div>
+            <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                    王聂文
+                </h2>
+                <h2 class="author-h2">
+                    Java高级工程师
+                </h2>
+            </a>
+        </div>
+        <div class="author clearfix" style="margin-top:10px;border:1px solid #d8c8b2;margin-left: 20px;height: 82px;margin-right: 20px;">
+            <div>
+                <a href="/users/31123326/" target="_blank" rel="nofollow" style="height: 50px" onclick="">
+                     <img src="images/touxiang/tx3.jpg" style="margin-left: 15px;margin-top: 15px;">
+                </a>
+            </div>
+            <a href="/users/31123326/" target="_blank" onclick="" >
+                <h2 class="author-h2" style="color:#000000">
+                    李文杰
+                </h2>
+                <h2 class="author-h2">
+                    数据库管理员
                 </h2>
             </a>
         </div>

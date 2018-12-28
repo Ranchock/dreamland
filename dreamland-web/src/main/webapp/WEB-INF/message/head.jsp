@@ -18,7 +18,7 @@
     <div class="nav">
         <a href="${ctx}/index_list" class="active">首页</a>
         <a href="whisper.html">热门</a>
-        <a href="${ctx}/message_list?id=${user.id}">留言</a>
+        <a href="leacots.html">留言</a>
         <a href="album.html">我的文章</a>
         <a href="${ctx}/list?id=${user.id}">个人空间</a>
         <!-- 搜索框 -->

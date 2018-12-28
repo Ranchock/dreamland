@@ -63,141 +63,50 @@
         <div class="col-md-9"  style="background-color: #ffffff;margin-right:12px">
             <div class="picture" style="height:350px;text-align:center">
                 <%--<img src="images/zhanshi.png">--%>
-                    <div id="myNiceCarousel" class="carousel slide" data-ride="carousel">
-                        <!-- 圆点指示器 -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myNiceCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myNiceCarousel" data-slide-to="1"></li>
-                            <li data-target="#myNiceCarousel" data-slide-to="2"></li>
-                        </ol>
+                <div id="myNiceCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- 圆点指示器 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myNiceCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myNiceCarousel" data-slide-to="1"></li>
+                        <li data-target="#myNiceCarousel" data-slide-to="2"></li>
+                    </ol>
 
-                        <!-- 轮播项目 -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img alt="First slide" src="images/Python.jpg">
-                                <div class="carousel-caption">
-                                    <h3>人生苦短，我用Python</h3>
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img alt="Second slide" src="/images/Bigdata.jpg">
-                                <div class="carousel-caption">
-                                    <h3>大数据的春天就在2019</h3>
-                                    <p></p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img alt="Third slide" src="images/coder.jpg">
-                                <div class="carousel-caption">
-                                    <h3>苦逼的程序员</h3>
-                                    <p></p>
-                                </div>
+                    <!-- 轮播项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="First slide" src="images/Python.jpg">
+                            <div class="carousel-caption">
+                                <h3>人生苦短，我用Python</h3>
+                                <p></p>
                             </div>
                         </div>
-
-                        <!-- 项目切换按钮 -->
-                        <a class="left carousel-control" href="#myNiceCarousel" data-slide="prev">
-                            <span class="icon icon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#myNiceCarousel" data-slide="next">
-                            <span class="icon icon-chevron-right"></span>
-                        </a>
+                        <div class="item">
+                            <img alt="Second slide" src="/images/Bigdata.jpg">
+                            <div class="carousel-caption">
+                                <h3>大数据的春天就在2019</h3>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="Third slide" src="images/coder.jpg">
+                            <div class="carousel-caption">
+                                <h3>苦逼的程序员</h3>
+                                <p></p>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- 项目切换按钮 -->
+                    <a class="left carousel-control" href="#myNiceCarousel" data-slide="prev">
+                        <span class="icon icon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#myNiceCarousel" data-slide="next">
+                        <span class="icon icon-chevron-right"></span>
+                    </a>
+                </div>
             </div>
             <div id="content_col" class="content-main">
-                <c:forEach var="cont" items="${page.result}" varStatus="i">
-                    <!-- 正文开始 -->
-                    <div class="content-text" >
-                        <div class="author clearfix">
-                            <div>
-                                <a href="#" target="_blank" rel="nofollow" style="height: 35px">
-                                     <img src="${cont.imgUrl}">
-                                </a>
-                            </div>
-                            <div class="author-h2">
-                                <div style="float: left;font-size: 15px;color: #9b8878">
-                                        ${cont.nickName}
-                                </div>
-                                <div style="float: left;margin-left: 10px;color: grey;margin-top: 2px;font-size: 12px">
-                                        ${cont.formatDate}
-                                </div>
-                                <div style="float: left;margin-left: 10px;color: grey;margin-top: 2px;font-size: 12px">
-                                        ${cont.category}
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <style>
-                            a.hover-red:hover{color:red;}
-                        </style>
-                        <a class='hover-red' href="${ctx}/watch?cid=${cont.id}">
-                        <h2 style="font-weight:bold">${cont.title}</h2></a>
-                        <br>
-                            <div style=" font-size:16px;height:20px;overflow:hidden;">${cont.content}</div>
-                        <div style="height: 12px"></div>
-                        <div class="stats" >
-                            <!-- 点赞数、评论数 -->
-                            <span class="stats-vote"><i id="${cont.id}" class="number">${cont.upvote}</i> 赞</span>
-                            <span class="stats-comments">
-                    <span class="dash"> · </span>
-                         <a  onclick="reply(${cont.id},${cont.uId});">
-                              <i class="number" id="comment_num_${cont.id}">${cont.commentNum}</i> 评论
-                          </a>
-                    </span>
-                        </div>
-                        <div style="height: 5px"></div>
-                        <div class="stats-buttons bar clearfix">
-                            <a style="cursor: pointer;" onclick="upvote_click(${cont.id},1);">
-                                <i class="icon icon-thumbs-o-up icon-2x"></i>
-                                <span class="number hidden" id="up_${cont.id}">${cont.upvote}</span>
-                            </a>
-                            &nbsp;
-                            <a style="cursor: pointer;" onclick="upvote_click(${cont.id},-1);">
-                                <i class="icon icon-thumbs-o-down icon-2x"></i>
-                                <span class="number hidden" id="down_${cont.id}">${cont.downvote}</span>
-                            </a>
-                            &nbsp;
-                            <a style="cursor: pointer;" onclick="reply(${cont.id},${cont.uId});" title="点击打开或关闭">
-                                <i class="icon icon-comment-alt icon-2x"></i>
-                            </a>
-                        </div>
-                        <div class="single-share">
-                            <a class="share-wechat" data-type="wechat" title="分享到微信" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-wechat icon-2x"></i>
-                            </a>
-                            <a class="share-qq" data-type="qq" title="分享到QQ" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-qq icon-2x"></i>
-                            </a>
-                            <a  class="share-weibo" data-type="weibo" title="分享到微博" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-weibo icon-2x"></i>
-                            </a>
-                        </div>
-                        <br/>
-                        &nbsp;
-                        <div class="commentAll" style="display:none" id="comment_reply_${cont.id}">
-                            <!--评论区域 begin-->
-                            <div class="reviewArea clearfix">
-                                <textarea id="comment_input_${cont.id}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)" style="
-    padding-top: 10px;
-    padding-bottom: 10px;"></textarea>
-                                <a class="plBtn" id="comment_${cont.id}" onclick="_comment(${cont.id},${user.id==null?0:user.id},${cont.uId})" style="color: white;cursor: pointer;">评论</a>
-                            </div>
-                            <!--评论区域 end-->
-                            <div class="comment-show-first" id="comment-show-${cont.id}">
 
-                            </div>
-
-                        </div>
-
-                        <div class="single-clear">
-
-                        </div>
-                    </div>
-                    <!-- 正文结束 -->
-                    <div style="position: absolute;width:855px;background-color: #EBEBEB;height: 10px;left: 0px">
-                    </div>
-                </c:forEach>
             </div>
 
 
@@ -234,40 +143,40 @@
             //尾部
 
 
-    <div class="col-md-3" style="position:absolute;top:0px;left: 855px;width: 268px;">
-		<div style="background-color: white;width: 250px;height: 440px">
-			<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=82" width="250" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-		</div>
-        <div style="background-color: white;width: 250px;height: 440px">
-            <img src="images/csdn.jpg"></br>
-            <h3 style="padding-top: 20px;margin-left: 18px">
-                <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
-                <span>友情推荐</span>
-            </h3>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">1、Flink流处理过程的部分原理分析</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">2、iOS使用动画连贯过渡界面转换</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/mydo/article/details/85200002" target="_blank">3、Unity屏幕雪花另类实现方式</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">4、机器学习：信用风险评估评分卡建模方法及原理</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">5、知识图谱—事件抽取及推理(上)</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">6、使用deepfashion实现自己的第一个分类网络</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">7、python实现并绘制 sigmoid函数，tanh函数，ReLU函数，PReLU函数</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">8、非 Java、C、Python，使用的第一门计算机语言是它！（下）</a></div></li>
-            <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">9、被经验蒙蔽——wireshark抓包问题</a></div></li>
+            <div class="col-md-3" style="position:absolute;top:0px;left: 855px;width: 268px;">
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=82" width="250" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                </div>
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <img src="images/csdn.jpg"></br>
+                    <h3 style="padding-top: 20px;margin-left: 18px">
+                        <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
+                        <span>友情推荐</span>
+                    </h3>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">1、Flink流处理过程的部分原理分析</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">2、iOS使用动画连贯过渡界面转换</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/mydo/article/details/85200002" target="_blank">3、Unity屏幕雪花另类实现方式</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">4、机器学习：信用风险评估评分卡建模方法及原理</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">5、知识图谱—事件抽取及推理(上)</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">6、使用deepfashion实现自己的第一个分类网络</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">7、python实现并绘制 sigmoid函数，tanh函数，ReLU函数，PReLU函数</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">8、非 Java、C、Python，使用的第一门计算机语言是它！（下）</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">9、被经验蒙蔽——wireshark抓包问题</a></div></li>
+
+                </div>
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <img src="images/csdn.jpg"></br>
+                    <h3 style="padding-top: 20px;margin-left: 18px">
+                        <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
+                        <span>广告位招租</span>
+                        <img src="images/hb.png" style="margin-top: 8px">
+                    </h3>
+                </div>
+            </div>
 
         </div>
-        <div style="background-color: white;width: 250px;height: 440px">
-            <img src="images/csdn.jpg"></br>
-            <h3 style="padding-top: 20px;margin-left: 18px">
-                <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
-                <span>广告位招租</span>
-                <img src="images/hb.png" style="margin-top: 8px">
-            </h3>
-        </div>
-	</div>
 
     </div>
-
-</div>
 </div>
 
 <%@ include file="foot.jsp"%>

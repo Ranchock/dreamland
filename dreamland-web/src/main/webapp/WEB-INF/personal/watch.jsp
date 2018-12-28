@@ -29,46 +29,14 @@
 </head>
 <body>
 <%--头部--%>
-<%@ include file="head.jsp"%>
+<%@ include file="head1.jsp"%>
 <br/>
 
 <div class="container">
-    <nav class="navbar navbar-inverse" >
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <%--<a class="navbar-brand" href="javascript:void(0);">最爱</a>--%>
-        </div>
-        <div id="navbar-menu" class="collapse navbar-collapse" >
-            <ul class="nav navbar-nav" >
-                <li ><a href="#">西甲联赛</a></li>&nbsp
-                <li><a href="#">意甲联赛</a></li>&nbsp
-                <li><a href="#">法甲联赛</a></li>&nbsp
-                <li><a href="#">德甲联赛</a></li>&nbsp
-                <li><a href="#">英超联赛</a></li>&nbsp
-                <li><a href="#">尤文图斯</a></li>&nbsp
-            </ul>
-        </div>
-        <!-- 搜索框 -->
-        <form class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <%--<button type="submit" class="btn btn-default">Submit</button>--%>
-            &nbsp; &nbsp;<i class="icon icon-search" style="color: white"></i>
-        </form>
-
-    </nav>
-
     <div id="content" class="row-fluid">
         <c:if test="${cont.uId == user.id}">
         <div class="update-dream">
-            <a href="${ctx}/writedream?cid=${cont.id}"><span style="color: #9370db;font-size: 14px">编辑</span> </a>
+            <%--<a href="${ctx}/writedream?cid=${cont.id}"><span style="color: #9370db;font-size: 14px">编辑</span> </a>--%>
         </div>
         </c:if>
         <div class="col-md-9"  style="background-color: #d8d8d8;">

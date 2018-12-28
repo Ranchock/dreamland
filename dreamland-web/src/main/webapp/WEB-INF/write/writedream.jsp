@@ -36,13 +36,21 @@
            </span> <span class="caret"></span></button>
             <input id="hidden_cat" hidden="hidden" name="category" value="${cont.category}"/>
             <ul class="dropdown-menu" id="dreamland-category">
-                <li><a>意甲联赛</a></li>
-                <li><a>西甲联赛</a></li>
-                <li><a>德甲联赛</a></li>
-                <li><a>法甲联赛</a></li>
-                <li><a>英超联赛</a></li>
-                <li><a>尤文图斯</a></li>
-                <li><a>曼联</a></li>
+                <li><a>大数据</a></li>
+                <li><a>程序人生</a></li>
+                <li><a>人工智能</a></li>
+                <li><a>云计算</a></li>
+                <li><a>数据库</a></li>
+                <li><a>前端</a></li>
+                <li><a>区块链</a></li>
+                <li><a>研发管理</a></li>
+                <li><a>网络安全</a></li>
+                <li><a>游戏开发</a></li>
+                <li><a>程序架构</a></li>
+                <li><a>物联网</a></li>
+                <li><a>计算机基础</a></li>
+                <li><a>视频开发</a></li>
+                <li><a>其他</a></li>
             </ul>
         </div>
     </div>
