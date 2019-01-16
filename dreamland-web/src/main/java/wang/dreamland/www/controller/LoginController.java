@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
+//import org.springframework.jms.core.JmsTemplate;
+//import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +18,12 @@ import wang.dreamland.www.common.RandStringUtils;
 import wang.dreamland.www.entity.User;
 import wang.dreamland.www.service.UserService;
 
-import javax.jms.JMSException;
-import javax.jms.MapMessage;
-import javax.jms.Message;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+//import javax.jms.JMSException;
+//import javax.jms.MapMessage;
+//import javax.jms.Message;
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.util.concurrent.TimeUnit;
 
 /**
  * Created by wly on 2018/4/21.
@@ -34,6 +34,7 @@ public class LoginController extends BaseController {
 
     @Autowired
     private UserService userService;
+
     @Autowired// redis数据库操作模板
     private RedisTemplate<String, String> redisTemplate;// jdbcTemplate HibernateTemplate
 
@@ -74,7 +75,7 @@ public class LoginController extends BaseController {
                           @RequestParam(value = "pageSize",required = false) Integer pageSize) {
 
         //判断是否是手机登录
-        if (StringUtils.isNotBlank(telephone)) {
+        /*if (StringUtils.isNotBlank(telephone)) {
             //手机登录
             String yzm = redisTemplate.opsForValue().get( telephone );//从redis获取验证码
             if(phone_code.equals(yzm)){
@@ -91,7 +92,7 @@ public class LoginController extends BaseController {
                 return  "../login";
             }
 
-        } else {
+        } else {*/
             //账号登录
 
             if (StringUtils.isBlank(code)) {
@@ -128,7 +129,7 @@ public class LoginController extends BaseController {
 
         }
 
-    }
+/*    }*/
 
     // 匹对验证码的正确性
     public int checkValidateCode(String code) {

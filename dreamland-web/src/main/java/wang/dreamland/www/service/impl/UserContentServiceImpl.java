@@ -121,6 +121,21 @@ public class UserContentServiceImpl implements UserContentService {
     }
 
     @Override
+    public Page<UserContent> findOnlyByCategory(String category, Integer pageNum, Integer pageSize) {
+        UserContent userContent = new UserContent();
+        if(StringUtils.isNotBlank(category) && !"null".equals(category)) {
+            userContent.setCategory(category);
+        }
+        userContent.setPersonal("0");
+        //开始分页
+        PageHelper.startPage(pageNum,pageSize);
+        userContentMapper.select(userContent);
+        //分页结束
+        Page endPage = PageHelper.endPage();
+        return endPage;
+    }
+
+    @Override
     public Page<UserContent> findPersonal(Long uid, Integer pageNum, Integer pageSize) {
         UserContent userContent = new UserContent();
         userContent.setuId(uid);
@@ -134,6 +149,11 @@ public class UserContentServiceImpl implements UserContentService {
     @Override
     public void deleteById(Long cid) {
         userContentMapper.deleteByPrimaryKey(cid);
+    }
+
+    @Override
+    public List<UserContent> findAllCategory() {
+        return userContentMapper.findAllCategory();
     }
 
 

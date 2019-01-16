@@ -37,29 +37,34 @@
 
 <div class="container">
     <div id="content" class="row-fluid">
-        <div class="col-md-2" style="width:100px;height:700px;background-color:#fdfeff;right: 10px;">
+        <!-- 右侧导航栏 -->
+        <div class="col-md-2" style="width:100px;height:610px;background-color:#fdfeff;right: 10px;">
             <div style="text-align: center;margin-top: 15px">
-                <li style="margin-top: 15px"><a>推荐</a></li>
-                <li style="margin-top: 15px"><a>最新文章</a></li>
-                <li style="margin-top: 15px"><a>关注</a></li>
-                <li style="margin-top: 15px"><a>资讯</a></li>
-                <li style="margin-top: 15px"><a>大数据</a></li>
-                <li style="margin-top: 15px"><a>程序人生</a></li>
-                <li style="margin-top: 15px"><a>人工智能</a></li>
-                <li style="margin-top: 15px"><a>云计算</a></li>
-                <li style="margin-top: 15px"><a>数据库</a></li>
-                <li style="margin-top: 15px"><a>前端</a></li>
-                <li style="margin-top: 15px"><a>区块链</a></li>
-                <li style="margin-top: 15px"><a>研发管理</a></li>
-                <li style="margin-top: 15px"><a>网络安全</a></li>
-                <li style="margin-top: 15px"><a>游戏开发</a></li>
-                <li style="margin-top: 15px"><a>程序架构</a></li>
-                <li style="margin-top: 15px"><a>物联网</a></li>
-                <li style="margin-top: 15px"><a>计算机基础</a></li>
-                <li style="margin-top: 15px"><a>视频开发</a></li>
-                <li style="margin-top: 15px"><a>其他</a></li>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="大数据" style="border:none;background:none;cursor:pointer;outline:none;">大数据</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序人生" style="border:none;background:none;cursor:pointer;outline:none;">程序人生</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="人工智能" style="border:none;background:none;cursor:pointer;outline:none;">人工智能</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="云计算" style="border:none;background:none;cursor:pointer;outline:none;">云计算</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="数据库" style="border:none;background:none;cursor:pointer;outline:none;">数据库</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="前端" style="border:none;background:none;cursor:pointer;outline:none;">前端</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="区块链" style="border:none;background:none;cursor:pointer;outline:none;">区块链</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="研发管理" style="border:none;background:none;cursor:pointer;outline:none;">研发管理</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="网络安全" style="border:none;background:none;cursor:pointer;outline:none;">网络安全</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="游戏开发" style="border:none;background:none;cursor:pointer;outline:none;">游戏开发</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序架构" style="border:none;background:none;cursor:pointer;outline:none;">程序架构</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="计算机基础" style="border:none;background:none;cursor:pointer;outline:none;">计算机基础</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="视频开发" style="border:none;background:none;cursor:pointer;outline:none;">视频开发</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="其他" style="border:none;background:none;cursor:pointer;outline:none;">其他</button></li></form>
+                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="资讯" style="border:none;background:none;cursor:pointer;outline:none;">资讯</button></li></form>
+                    <%--<c:forEach items="${allCategory}" var="category" varStatus="sta">
+                        <form method="post" action="${ctx}/index_list" id="indexCategoryForm">
+                            <li style="margin-top: 15px"><button type="submit" onclick="categoryForm();" id="category" name="category" value="${category.category}" style="border:none;background:none;cursor:pointer;outline:none;">${category.category}</button></li>
+                        </form>
+                    </c:forEach>--%>
             </div>
         </div>&nbsp;
+
+
+        <!-- 中间内容 -->
         <div class="col-md-9"  style="background-color: #ffffff;margin-right:12px">
             <div class="picture" style="height:350px;text-align:center">
                 <%--<img src="images/zhanshi.png">--%>
@@ -69,6 +74,8 @@
                             <li data-target="#myNiceCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myNiceCarousel" data-slide-to="1"></li>
                             <li data-target="#myNiceCarousel" data-slide-to="2"></li>
+                            <li data-target="#myNiceCarousel" data-slide-to="3"></li>
+                            <li data-target="#myNiceCarousel" data-slide-to="4"></li>
                         </ol>
 
                         <!-- 轮播项目 -->
@@ -94,6 +101,7 @@
                                     <p></p>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- 项目切换按钮 -->
@@ -105,6 +113,9 @@
                         </a>
                     </div>
             </div>
+
+
+
             <div id="content_col" class="content-main">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <!-- 正文开始 -->
@@ -619,6 +630,22 @@
                     }
                 }
             });
+        }
+    }
+
+    //搜索
+    function searchForm(){
+        var keyword =  $("#keyword").val();
+        if(keyword!=null && keyword.trim()!=""){
+            $("#indexSearchForm").submit();
+        }
+    }
+
+    //文章分类
+    function categoryForm(){
+        var category =  $("#category").val();
+        if(category!=null && category.trim()!=""){
+            $("#indexCategoryForm").submit();
         }
     }
 

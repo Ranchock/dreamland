@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wang.dreamland.www.dao.UserContentMapper">
-
+    <!-- u_id = #{uid} and -->
     <select id="findCategoryByUid"  resultMap="categoryMap">
         select category,count(1) as num from user_content
         where u_id = #{uid} and personal = '0'
@@ -64,5 +64,12 @@
         <result property="commentNum" column="comment_num" />
         <result property="content" column="content" />
     </resultMap>
+
+    <!-- 查询所有的文章分类 -->
+    <select id="findAllCategory" resultMap="categoryMap">
+        select category,count(1) as num from user_content
+        where personal = '0'
+        group by category order by num desc
+    </select>
 
 </mapper>

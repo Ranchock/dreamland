@@ -4,7 +4,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 
-<nav>
+<nav style="background: #d8d8d8">
 <div class="header">
     <div class="menu-btn">
         <div class="menu"></div>
@@ -17,17 +17,17 @@
     </h1>
     <div class="nav">
         <a href="${ctx}/index_list" class="active">首页</a>
-        <a href="whisper.html">热门</a>
+        <a href="${ctx}/index_list">热门</a>
         <a href="${ctx}/message_list?id=${user.id}">留言</a>
         <a href="album.html">我的文章</a>
         <a href="${ctx}/list?id=${user.id}">个人空间</a>
         <!-- 搜索框 -->
-        <form class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
+        <form method="post" action="${ctx}/iref="aist"  id="indexSearchForm" class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
             <div class="form-group" >
-                <input type="text" class="form-control" placeholder="请输入您要搜索的内容..." style="margin-top: 70px;margin-left: 200px;width: 268px;">
+                <input type="text" id="keyword" name="keyword" value="${keyword}" class="form-control" placeholder="请输入您要搜索的内容..." style="margin-top: 70px;margin-left: 200px;width: 268px;">
             </div>
-            <button type="submit" class="btn btn-default" style="margin-top: 70px;">搜索</button>
-            &nbsp; &nbsp;<i class="icon icon-search" style="color: white"></i>
+            <button type="submit" class="btn btn-default" onclick="searchForm();" style="margin-top: 70px;">搜索</button>
+            <%--&nbsp; &nbsp;<i onclick="searchForm();" class="icon icon-search" style="color: white"></i>--%>
         </form>
     </div>
 
@@ -58,11 +58,12 @@
     </p>
 </div>
 
-<div class="banner">
+<%--<div class="banner">
     <div class="cont w1000">
         <div class="title">
             <h3>FOOTBALL<br />BLOG</h3>
             <h4>well-balanced heart</h4>
         </div>
     </div>
-</div>
+</div>--%>
+</nav>

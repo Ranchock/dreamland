@@ -14,6 +14,7 @@
 
     <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
     <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <link href="${ctx}/css/personal/personal.css" rel="stylesheet"/>
 
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
@@ -31,15 +32,85 @@
 <%--头部--%>
 <%@ include file="head1.jsp"%>
 <br/>
+<div class="container" style="margin-left: 250px">
 
-<div class="container">
     <div id="content" class="row-fluid">
+
+        <!--个人资料页面-->
+        <div class="designer-card card-media" style="width: 260px" >
+            <input type="hidden" name="creator" value="13149346">
+            <div class="avatar-container-80 center" >
+                <a href="#" title="${user.nickName}" class="avatar" target="_blank">
+                    <img src="${user.imgUrl}" width="80" height="80" alt="">
+                </a>
+
+            </div>
+
+            <br/>
+            <!--个人资料页面-->
+            <div class="author-info">
+                <p class="author-info-title">
+                    <a href="#" title="${user.nickName}"
+                       class="title-content" target="_blank">${user.nickName}
+                    </a>
+                </p>
+                <div class="position-info">
+                    <span>成都&nbsp;|&nbsp;大数据工程师</span>
+                </div>
+                <div class="btn-area">
+                    <div class="js-project-focus-btn" style="margin-left: 20px">
+
+                        <input type="button" title="添加关注" class="btn-default-main btn-current attention notfollow" value="关注"
+                               z-st="follow">
+
+                    </div>
+                    <div style="margin-left: 30px;float: left">
+                        <input type="button" title="发私信" class="btn-default-secondary btn-current private-letter" value="私信"
+                               onclick="" z-st="privateMsg">
+                    </div>
+                </div>
+
+                <div>
+                    <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 42px">
+                        <span style="color: white;font-size: 12px">等级</span>
+                    </div>
+                    <div style="width: 18px;height: 18px;background-color: #2b542c;float: left;line-height: 15px;margin-top: 30px;">
+                        <span style="color: white;font-size: 12px">1</span>
+                    </div>
+
+
+                    <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 20px">
+                        <span style="color: white;font-size: 12px">文章</span>
+                    </div>
+                    <div style="width: 18px;height: 18px;background-color: #2b542c;float: left;line-height: 15px;margin-top: 30px;">
+                        <span style="color: white;font-size: 12px">${page.total}</span>
+                    </div>
+
+                    <div style="width: 35px;height: 18px;background-color: #4cae4c;float: left;line-height: 15px;margin-top: 30px;margin-left: 20px">
+                        <span style="color: white;font-size: 12px">下载</span>
+                    </div>
+                    <div style="width: 18px;height: 18px;background-color: #2b542c;float: left;line-height: 15px;margin-top: 30px;">
+                        <span style="color: white;font-size: 12px">2</span>
+                    </div>
+                </div>
+
+                <div style="float: left;margin-top: 40px; margin-left: 130px;">
+                    <%--<a href="${ctx}/profile"><i class="icon icon-edit"></i><span style="margin-left: 10px">修改个人资料</span></a>--%>
+                </div>
+            </div>
+        </div>
+
         <c:if test="${cont.uId == user.id}">
         <div class="update-dream">
-            <%--<a href="${ctx}/writedream?cid=${cont.id}"><span style="color: #9370db;font-size: 14px">编辑</span> </a>--%>
+            <a href="${ctx}/writedream?cid=${cont.id}"><span style="color: #9370db;font-size: 14px">编辑</span> </a>
         </div>
         </c:if>
+
+
+
+
         <div class="col-md-9"  style="background-color: #d8d8d8;">
+
 
 
             <div id="content_col" class="content-main">
@@ -121,13 +192,38 @@
                     </div>
                     <!-- 正文结束 -->
             </div>
-        <div class="col-md-3" style="position:absolute;top:20px;left: 880px;width: 268px;">
-            <div style="background-color: white;width: 250px;height: 440px">
-                <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=82" width="250" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            <div class="col-md-3" style="position:absolute;top:0px;left: 855px;width: 268px;">
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=82" width="250" height="440" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+                </div>
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <img src="images/csdn.jpg"></br>
+                    <h3 style="padding-top: 20px;margin-left: 18px">
+                        <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
+                        <span>友情推荐</span>
+                    </h3>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">1、Flink流处理过程的部分原理分析</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">2、iOS使用动画连贯过渡界面转换</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/mydo/article/details/85200002" target="_blank">3、Unity屏幕雪花另类实现方式</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">4、机器学习：信用风险评估评分卡建模方法及原理</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">5、知识图谱—事件抽取及推理(上)</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">6、使用deepfashion实现自己的第一个分类网络</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">7、python实现并绘制 sigmoid函数，tanh函数，ReLU函数，PReLU函数</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">8、非 Java、C、Python，使用的第一门计算机语言是它！（下）</a></div></li>
+                    <li style="margin-top: 8px"><div class="content1"><a href="https://blog.csdn.net/Androidlushangderen/article/details/85058701" target="_blank">9、被经验蒙蔽——wireshark抓包问题</a></div></li>
+
+                </div>
+                <div style="background-color: white;width: 250px;height: 440px">
+                    <img src="images/csdn.jpg"></br>
+                    <h3 style="padding-top: 20px;margin-left: 18px">
+                        <span class="line" style="display: block;float: left;width: 3px;height: 15px;background: #cf2730;overflow: hidden;margin: 0 5px 0 0;"></span>
+                        <span>广告位招租</span>
+                        <img src="images/hb.png" style="margin-top: 8px">
+                    </h3>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <%@ include file="foot.jsp"%>
 </body>

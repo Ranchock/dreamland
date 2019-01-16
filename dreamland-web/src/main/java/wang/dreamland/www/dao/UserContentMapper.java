@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserContentMapper extends Mapper<UserContent> {
 
     /**
-     * 根据用户id查询出梦分类
+     * 根据用户id查询出文章分类
      * @param uid
      * @return
      */
@@ -30,6 +30,8 @@ public interface UserContentMapper extends Mapper<UserContent> {
      * @return
      */
     List<UserContent> findByJoin(UserContent userContent);
+
+    List<UserContent> findAllCategory();
 
 
 }

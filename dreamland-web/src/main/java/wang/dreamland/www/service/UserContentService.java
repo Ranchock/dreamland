@@ -62,7 +62,7 @@ public interface UserContentService {
     void updateById(UserContent content);
 
     /**
-     * 根据用户id查询出梦分类
+     * 根据用户id查询出文章分类
      * @param uid
      * @return
      */
@@ -78,6 +78,15 @@ public interface UserContentService {
     PageHelper.Page<UserContent> findByCategory(String category,Long uid,Integer pageNum,Integer pageSize);
 
     /**
+     * 根据文章分类查询所有文章(忽视id)
+     * @param category
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageHelper.Page<UserContent> findOnlyByCategory(String category,Integer pageNum,Integer pageSize);
+
+    /**
      * 根据用户id查询所有文章私密并分页
      * @param uid
      * @param pageNum
@@ -91,4 +100,10 @@ public interface UserContentService {
      * @param cid
      */
     void deleteById(Long cid);
+
+    /**
+     * 查询数据库所有文章分类
+     * @return
+     */
+    List<UserContent> findAllCategory();
 }

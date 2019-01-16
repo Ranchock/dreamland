@@ -9,16 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wang.dreamland.www.common.DateUtils;
+import wang.dreamland.www.common.PageHelper;
 import wang.dreamland.www.common.PageHelper.Page;
 import wang.dreamland.www.common.StringUtil;
 import wang.dreamland.www.entity.Comment;
 import wang.dreamland.www.entity.Upvote;
 import wang.dreamland.www.entity.User;
 import wang.dreamland.www.entity.UserContent;
-import wang.dreamland.www.service.CommentService;
-import wang.dreamland.www.service.UpvoteService;
-import wang.dreamland.www.service.UserContentService;
-import wang.dreamland.www.service.UserService;
+import wang.dreamland.www.service.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -32,8 +30,12 @@ import java.util.Map;
 @Controller
 public class IndexJspController extends BaseController {
     private final static Logger log = Logger.getLogger(IndexJspController.class);
+
+
+
     @Autowired
     private UserContentService userContentService;
+
     @Autowired
     private UpvoteService upvoteService;
 
@@ -42,19 +44,49 @@ public class IndexJspController extends BaseController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SolrService solrService;
 
+    /**
+     * 首页列表
+     * @param model
+     * @param keyword
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("/index_list")
-    public String findAllList(Model model, @RequestParam(value = "id",required = false) String id ,
+    public String findAllList(Model model,
+                              @RequestParam(value = "category",required = false) String category,
+                              @RequestParam(value = "keyword",required = false) String keyword,
                               @RequestParam(value = "pageNum",required = false) Integer pageNum ,
                               @RequestParam(value = "pageSize",required = false) Integer pageSize) {
-
         log.info( "===========进入index_list=========" );
         User user = (User)getSession().getAttribute("user");
         if(user!=null){
             model.addAttribute( "user",user );
         }
-        Page<UserContent> page =  findAll(pageNum,pageSize);
-        model.addAttribute( "page",page );
+        if(StringUtils.isNotBlank(keyword)){
+            Page<UserContent> page = solrService.findByKeyWords( keyword ,pageNum,pageSize);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("page", page);
+        }else if(StringUtils.isNotBlank(category)){ //根据文章分类查询文章
+            Page<UserContent> page = userContentService.findOnlyByCategory(category,pageNum,pageSize);
+            model.addAttribute("page",page);
+        }else {
+            Page<UserContent> page =  findAll(pageNum,pageSize);
+            model.addAttribute( "page",page );
+        }
+
+
+
+        //查询热门博文
+        UserContent uct = new UserContent();
+        uct.setPersonal("0");
+        PageHelper.Page<UserContent> hotPage =  findAllByUpvote(uct,pageNum,  pageSize);
+        model.addAttribute( "hotPage",hotPage );
+
+
         return "../index";
     }
 

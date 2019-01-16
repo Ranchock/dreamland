@@ -42,6 +42,9 @@ public class PersonalController extends BaseController{
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private  SolrService solrService;
+
 
 
     /**
@@ -63,22 +66,23 @@ public class PersonalController extends BaseController{
             return "../login";
         }
         log.info("初始化个人主页信息");
-        //查询梦分类
+
+        //查询文章分类
         List<UserContent> categorys = userContentService.findCategoryByUid(user.getId());
         model.addAttribute( "categorys",categorys );
-        //发布的梦 不含私密梦
+        //发布的梦 不含私密文章
         content.setPersonal("0");
-        pageSize = 4; //默认每页显示4条数据
+        pageSize = 8; //默认每页显示4条数据
         PageHelper.Page<UserContent> page =  findAll(content,pageNum,  pageSize); //分页
 
         model.addAttribute( "page",page );
 
-        //查询私密梦
+        //查询私密文章
         uc.setPersonal("1");
         PageHelper.Page<UserContent> page2 =  findAll(uc,pageNum,  pageSize);
         model.addAttribute( "page2",page2 );
 
-        //查询热梦
+        //查询热门文章
         UserContent uct = new UserContent();
         uct.setPersonal("0");
         PageHelper.Page<UserContent> hotPage =  findAllByUpvote(uct,pageNum,  pageSize);
@@ -94,7 +98,9 @@ public class PersonalController extends BaseController{
      */
     @RequestMapping("/findByCategory")
     @ResponseBody
-    public Map<String,Object> findByCategory(Model model, @RequestParam(value = "category",required = false) String category,@RequestParam(value = "pageNum",required = false) Integer pageNum ,
+    public Map<String,Object> findByCategory(Model model,
+                                             @RequestParam(value = "category",required = false) String category,
+                                             @RequestParam(value = "pageNum",required = false) Integer pageNum ,
                                              @RequestParam(value = "pageSize",required = false) Integer pageSize) {
 
         Map map = new HashMap<String,Object>(  );
@@ -130,6 +136,13 @@ public class PersonalController extends BaseController{
         return map;
     }
 
+
+    /**
+     * 删除文章
+     * @param model
+     * @param cid
+     * @return
+     */
     @RequestMapping("/deleteContent")
     public String deleteContent(Model model, @RequestParam(value = "cid",required = false) Long cid) {
 
@@ -140,6 +153,7 @@ public class PersonalController extends BaseController{
         commentService.deleteByContentId(cid);
         upvoteService.deleteByContentId(cid);
         userContentService.deleteById(cid);
+        solrService.deleteById(cid); //删除文章的同时删除索引库对应的信息
         return "redirect:/list?manage=manage";
     }
 
@@ -174,7 +188,7 @@ public class PersonalController extends BaseController{
         User user = (User)getSession().getAttribute("user");
         user.setImgUrl(url);
         userService.update(user);
-        map.put("msg","success");
+        map.put("msg","success");  //成功提示
         return map;
     }
 

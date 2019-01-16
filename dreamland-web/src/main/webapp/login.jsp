@@ -213,7 +213,7 @@
     }
 
     //校验手机号
-    var flag2 = false
+    /*var flag2 = false
     function checkPhone(){
         var phone = $("#phone").val();
         phone = phone.replace(/^\s+|\s+$/g,"");
@@ -247,24 +247,24 @@
         }
 
         return flag2;
-    }
+    }*/
 
 
 
-    function countDown(s){
+    /*function countDown(s){
         if(s <= 0){
             $("#go").text("重新获取");
             $("#go").removeAttr("disabled");
             return;
         }
-        /* $("#go").val(s + "秒后重新获取");*/
+        /!* $("#go").val(s + "秒后重新获取");*!/
         $("#go").text(s + "秒后重新获取");
         setTimeout("countDown("+(s-1)+")",1000);
-    }
+    }*/
 
 
     //获取验证码
-    $(function () {
+    /*$(function () {
         var go = document.getElementById('go');
 
         go.onclick = function (ev){
@@ -303,9 +303,9 @@
             return false;
 
         }
-    });
+    });*/
 
-    var p_flag = false;
+    /*var p_flag = false;
     //手机验证码检查
     function checkPhoneCode(){
         var reg = /^\d{6}\b/;
@@ -317,7 +317,9 @@
         }
 
         return p_flag;
-    }
+    }*/
+
+
     //登录
     $("#phone_btn").click(function () {
 
