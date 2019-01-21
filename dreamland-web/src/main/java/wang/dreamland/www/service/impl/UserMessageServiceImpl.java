@@ -18,6 +18,16 @@ public class UserMessageServiceImpl implements UserMessageService {
 
 
     @Override
+    public Page<UserMessage> findMessage(Integer pageNum, Integer pageSize) {
+        UserMessage userMessage = new UserMessage();
+        //开始分页
+        PageHelper.startPage(pageNum,pageSize);
+        userMessageMapper.select(userMessage);
+        Page endPage = PageHelper.endPage(); //结束分页
+        return endPage;
+    }
+
+    @Override
     public PageHelper.Page<UserMessage> findMessageByUId(Long uid, Integer pageNum, Integer pageSize) {
         UserMessage userMessage = new UserMessage();
         userMessage.setuId(uid);

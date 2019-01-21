@@ -8,9 +8,10 @@
     <meta charset="UTF-8">
     <title>个人空间</title>
 
-    <!--头部-->
+    <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
+    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
 
 
     <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -26,13 +27,13 @@
     <script src="${ctx}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
 
     <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
     <![endif]-->
 </head>
 <body>
 
 <%--头部--%>
-<%@ include file="head.jsp"%>
+<%@ include file="head1.jsp"%>
 
     <!-- 左侧菜单栏-->
 <div class="author-card follow-box">
@@ -377,8 +378,11 @@
 <div class="ibx-advice" onmouseover="changeBackColor();" onmouseout="back2color();">
     <a href="${ctx}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写梦"></span></a>
 </div>
-
+<%--尾部--%>
+<%--<%@ include file="foot.jsp"%>--%>
 </body>
+
+
 <script>
     //博客分类点击事件
     function changeToActive(id,category,pageNum) {

@@ -23,7 +23,7 @@
 </head>
 <body>
 <%--头部--%>
-<%@ include file="head.jsp"%>
+<%@ include file="head1.jsp"%>
 
     <!-- -->
 <div style="margin-left: 100px;margin-top: 80px;" class="main-content">

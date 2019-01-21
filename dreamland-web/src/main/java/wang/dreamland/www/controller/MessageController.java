@@ -2,7 +2,6 @@ package wang.dreamland.www.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +18,14 @@ public class MessageController extends BaseController{
     private UserMessageService userMessageService;
 
 
+    /**
+     * 返回留言板列表
+     * @param model
+     * @param id
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("/message_list")
     public String findAllList(Model model, @RequestParam(value = "id",required = false) String id ,
                               @RequestParam(value = "pageNum",required = false) Integer pageNum ,
@@ -33,9 +40,16 @@ public class MessageController extends BaseController{
             return "../login";
         }
         pageSize = 8; //默认每页显示4条数据
-        PageHelper.Page<UserMessage> page =  userMessageService.findMessageByUId(user.getId(),pageNum,pageSize);
+        PageHelper.Page<UserMessage> page =  userMessageService.findMessage(pageNum,pageSize);
         model.addAttribute( "page",page );
         System.out.println(page.toString());
         return "message/message";
     }
+
+    /**
+     * 留言
+     *
+     *
+     *
+     */
 }

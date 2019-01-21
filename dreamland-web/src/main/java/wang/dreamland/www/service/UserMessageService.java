@@ -4,9 +4,15 @@ package wang.dreamland.www.service;
 import wang.dreamland.www.common.PageHelper;
 import wang.dreamland.www.entity.UserMessage;
 
-import java.util.List;
-
 public interface UserMessageService {
+
+    /**
+     *
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageHelper.Page<UserMessage> findMessage( Integer pageNum, Integer pageSize);
 
     /**
      *
@@ -16,5 +22,7 @@ public interface UserMessageService {
      * @return
      */
     PageHelper.Page<UserMessage> findMessageByUId(Long uid, Integer pageNum, Integer pageSize);
+
+
 
 }

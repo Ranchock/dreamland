@@ -4,7 +4,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head style="background-color: #f4f4f4">
     <meta charset="UTF-8">
     <title>写文章</title>
     <link href="${ctx}/css/write/writedream.css" rel="stylesheet"/>
@@ -15,6 +15,11 @@
     <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
     <script src="${ctx}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
+
+    <!--头部and尾部 -->
+    <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/main.css">
+    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
 </head>
 <body>
 <%--头部--%>
@@ -77,6 +82,8 @@
     </div>
 </div>
 </form>
+<%--头部--%>
+<%@ include file="foot.jsp"%>
 </body>
 <script>
 

@@ -8,6 +8,10 @@ public class UserMessage {
 
     private String Message;
 
+    private String imgUrl;
+
+    private String nickName;
+
     @Override
     public String toString() {
         return "UserMessage{" +
@@ -15,6 +19,22 @@ public class UserMessage {
                 ", uId=" + uId +
                 ", Message='" + Message + '\'' +
                 '}';
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getMessage() {

@@ -32,7 +32,7 @@
 
 <%--头部--%>
 <%@ include file="head.jsp"%>
-<br/>
+<br/><br/>
 
 
 <div class="container">
@@ -74,28 +74,28 @@
                             <li data-target="#myNiceCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myNiceCarousel" data-slide-to="1"></li>
                             <li data-target="#myNiceCarousel" data-slide-to="2"></li>
-                            <li data-target="#myNiceCarousel" data-slide-to="3"></li>
-                            <li data-target="#myNiceCarousel" data-slide-to="4"></li>
+                            <%--<li data-target="#myNiceCarousel" data-slide-to="3"></li>--%>
+                            <%--<li data-target="#myNiceCarousel" data-slide-to="4"></li>--%>
                         </ol>
 
                         <!-- 轮播项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img alt="First slide" src="images/Python.jpg">
+                                <a href="http://localhost:8080/watch?cid=54"><img alt="First slide" src="/images/lyh.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
-                                    <h3>人生苦短，我用Python</h3>
+                                    <h3>谁能真正“撬动”微信？| 畅言</h3>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="item">
-                                <img alt="Second slide" src="/images/Bigdata.jpg">
+                                <a href="http://localhost:8080/watch?cid=53"><img alt="Second slide" src="/images/ds.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
-                                    <h3>大数据的春天就在2019</h3>
+                                    <h3>今日头条把微信按在地上摩擦</h3>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="item">
-                                <img alt="Third slide" src="images/coder.jpg">
+                                <a href="http://localhost:8080/watch?cid=44"><img alt="Third slide" src="images/coder.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
                                     <h3>苦逼的程序员</h3>
                                     <p></p>
