@@ -131,7 +131,11 @@ public class LoginController extends BaseController {
 
 /*    }*/
 
-    // 匹对验证码的正确性
+    /**
+     * 匹对验证码的正确性
+     * @param code
+     * @return
+     */
     public int checkValidateCode(String code) {
         Object vercode = getRequest().getSession().getAttribute("VERCODE_KEY");
         if (null == vercode) {
@@ -175,7 +179,11 @@ public class LoginController extends BaseController {
     }*/
 
 
-
+    /**
+     * 退出登录
+     * @param model
+     * @return
+     */
     @RequestMapping("/loginout")
     public String loginout(Model model) {
         log.info("退出登录");

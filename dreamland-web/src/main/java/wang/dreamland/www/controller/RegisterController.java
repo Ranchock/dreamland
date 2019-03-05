@@ -33,7 +33,10 @@ public class RegisterController {
      private RedisTemplate<String, String> redisTemplate;
 
     /**
-     *手机号校验:判断是否被注册
+     * 手机号校验:判断是否被注册
+     * @param model
+     * @param phone
+     * @return
      */
     @RequestMapping("/checkPhone")
     @ResponseBody
@@ -53,6 +56,9 @@ public class RegisterController {
 
     /**
      * 判断邮箱是否已经被注册
+     * @param model
+     * @param email
+     * @return
      */
     @RequestMapping("/checkEmail")
     @ResponseBody
@@ -73,6 +79,9 @@ public class RegisterController {
 
     /**
      * 判断验证码是否正确
+     * @param model
+     * @param code
+     * @return
      */
     @RequestMapping("/checkCode")
     @ResponseBody
@@ -98,6 +107,13 @@ public class RegisterController {
 
     /**
      * 用户注册
+     * @param model
+     * @param email
+     * @param password
+     * @param phone
+     * @param nickname
+     * @param code
+     * @return
      */
     @RequestMapping("/doRegister")
     public String doRegister(Model model,
@@ -155,7 +171,11 @@ public class RegisterController {
 
     }
 
-    // 匹对验证码的正确性
+    /**
+     * 匹对验证码的正确性
+     * @param code
+     * @return
+     */
     public int checkValidateCode(String code) {
         ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         Object vercode = attrs.getRequest().getSession().getAttribute("VERCODE_KEY");
@@ -168,6 +188,11 @@ public class RegisterController {
         return 1;
     }
 
+    /**
+     * 激活验证码
+     * @param model
+     * @return
+     */
     @RequestMapping("/activecode")
     public String active(Model model) {
         log.info( "==============激活验证==================" );
@@ -208,7 +233,11 @@ public class RegisterController {
         }
     }
 
-    //发送验证码
+    /**
+     * 发送验证码
+     * @param model
+     * @return
+     */
     @RequestMapping("/sendEmail")
     @ResponseBody
     public  Map<String,Object> sendEmail(Model model) {
@@ -221,6 +250,11 @@ public class RegisterController {
         return map;
     }
 
+    /**
+     * 进入注册页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/register")
     public String register(Model model) {
         log.info("进入注册页面");

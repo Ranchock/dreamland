@@ -25,13 +25,20 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * Created by wly on 2018/5/20.
- */
+
 @Controller
 public class UploadController {
     private final static Logger log = Logger.getLogger(UploadController.class);
 
+    /**
+     * 文件加载
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     * @throws FileUploadException
+     */
      @RequestMapping(value = "/fileUpload")
      @ResponseBody
       public Map<String, Object> fileUpload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,
@@ -155,6 +162,13 @@ public class UploadController {
                 return msg;
              }
 
+    /**
+     * 文件管理
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @RequestMapping(value = "/fileManager")
     public void fileManager(HttpServletRequest request,
              HttpServletResponse response) throws ServletException, IOException {
