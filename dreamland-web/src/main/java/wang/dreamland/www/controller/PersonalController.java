@@ -46,10 +46,13 @@ public class PersonalController extends BaseController{
     private  SolrService solrService;
 
 
-
     /**
      * 初始化个人主页数据
-     *
+     * @param model
+     * @param id
+     * @param pageNum
+     * @param pageSize
+     * @return
      */
     @RequestMapping("/list")
     public String findList(Model model, @RequestParam(value = "id",required = false) String id,
@@ -117,6 +120,10 @@ public class PersonalController extends BaseController{
 
     /**
      * 根据用户id查询私密文章
+     * @param model
+     * @param pageNum
+     * @param pageSize
+     * @return
      */
     @RequestMapping("/findPersonal")
     @ResponseBody
@@ -192,6 +199,16 @@ public class PersonalController extends BaseController{
         return map;
     }
 
+    /**
+     * 保存用户信息
+     * @param model
+     * @param name
+     * @param nickName
+     * @param sex
+     * @param address
+     * @param birthday
+     * @return
+     */
     @RequestMapping("/saveUserInfo")
     public String saveUserInfo(Model model, @RequestParam(value = "name",required = false) String name ,
                                @RequestParam(value = "nick_name",required = false) String nickName,
@@ -229,7 +246,11 @@ public class PersonalController extends BaseController{
         return "personal/profile";
     }
 
-    //修改密码页面
+    /**
+     * 修改密码页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/repassword")
     public String repassword(Model model) {
         User user = (User) getSession().getAttribute("user");
@@ -240,7 +261,13 @@ public class PersonalController extends BaseController{
         return "../login";
     }
 
-    //修改密码
+    /**
+     * 修改密码
+     * @param model
+     * @param oldPassword
+     * @param password
+     * @return
+     */
     @RequestMapping("/updatePassword")
     public String updatePassword(Model model, @RequestParam(value = "old_password",required = false) String oldPassword,
                                  @RequestParam(value = "password",required = false) String password){

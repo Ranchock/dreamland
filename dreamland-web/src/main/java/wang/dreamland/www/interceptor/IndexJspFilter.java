@@ -22,8 +22,8 @@ public class IndexJspFilter implements Filter{
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         System.out.println("===========自定义过滤器==========");
         ServletContext context = request.getServletContext();
-        ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(context);
-        UserContentMapper userContentMapper = ctx.getBean(UserContentMapper.class);
+        ApplicationContext app = WebApplicationContextUtils.getWebApplicationContext(context);
+        UserContentMapper userContentMapper = app.getBean(UserContentMapper.class);
         PageHelper.startPage(null, null);//开始分页
         List<UserContent> list = userContentMapper.findByJoin(null);
         PageHelper.Page endPage = PageHelper.endPage();//分页结束

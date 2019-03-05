@@ -1,33 +1,33 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>FootBall land&足球大陆</title>
     <!--引入BootStrap样式-->
-    <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="${ctx}/css/reply/css/style.css">
-    <link rel="stylesheet" href="${ctx}/css/reply/css/comment.css">
-    <link rel="stylesheet" href="${ctx}/css/index.css">
+    <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="${app}/css/reply/css/style.css">
+    <link rel="stylesheet" href="${app}/css/reply/css/comment.css">
+    <link rel="stylesheet" href="${app}/css/index.css">
 
 
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
-    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
+    <script type="text/javascript" src="${app}/js/skdslider.min.js"></script>
 </head>
 <body>
 
-<script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
-<script type="text/javascript" src="${ctx}/css/reply/js/jquery.flexText.js"></script>
+<script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
+<script type="text/javascript" src="${app}/css/reply/js/jquery.flexText.js"></script>
 
 
 <%--头部--%>
@@ -40,23 +40,23 @@
         <!-- 右侧导航栏 -->
         <div class="col-md-2" style="width:100px;height:610px;background-color:#fdfeff;right: 10px;">
             <div style="text-align: center;margin-top: 15px">
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="大数据" style="border:none;background:none;cursor:pointer;outline:none;">大数据</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序人生" style="border:none;background:none;cursor:pointer;outline:none;">程序人生</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="人工智能" style="border:none;background:none;cursor:pointer;outline:none;">人工智能</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="云计算" style="border:none;background:none;cursor:pointer;outline:none;">云计算</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="数据库" style="border:none;background:none;cursor:pointer;outline:none;">数据库</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="前端" style="border:none;background:none;cursor:pointer;outline:none;">前端</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="区块链" style="border:none;background:none;cursor:pointer;outline:none;">区块链</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="研发管理" style="border:none;background:none;cursor:pointer;outline:none;">研发管理</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="网络安全" style="border:none;background:none;cursor:pointer;outline:none;">网络安全</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="游戏开发" style="border:none;background:none;cursor:pointer;outline:none;">游戏开发</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序架构" style="border:none;background:none;cursor:pointer;outline:none;">程序架构</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="计算机基础" style="border:none;background:none;cursor:pointer;outline:none;">计算机基础</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="视频开发" style="border:none;background:none;cursor:pointer;outline:none;">视频开发</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="其他" style="border:none;background:none;cursor:pointer;outline:none;">其他</button></li></form>
-                <form method="post" action="${ctx}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="资讯" style="border:none;background:none;cursor:pointer;outline:none;">资讯</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="大数据" style="border:none;background:none;cursor:pointer;outline:none;">大数据</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序人生" style="border:none;background:none;cursor:pointer;outline:none;">程序人生</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="人工智能" style="border:none;background:none;cursor:pointer;outline:none;">人工智能</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="云计算" style="border:none;background:none;cursor:pointer;outline:none;">云计算</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="数据库" style="border:none;background:none;cursor:pointer;outline:none;">数据库</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="前端" style="border:none;background:none;cursor:pointer;outline:none;">前端</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="区块链" style="border:none;background:none;cursor:pointer;outline:none;">区块链</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="研发管理" style="border:none;background:none;cursor:pointer;outline:none;">研发管理</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="网络安全" style="border:none;background:none;cursor:pointer;outline:none;">网络安全</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="游戏开发" style="border:none;background:none;cursor:pointer;outline:none;">游戏开发</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序架构" style="border:none;background:none;cursor:pointer;outline:none;">程序架构</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="计算机基础" style="border:none;background:none;cursor:pointer;outline:none;">计算机基础</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="视频开发" style="border:none;background:none;cursor:pointer;outline:none;">视频开发</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="其他" style="border:none;background:none;cursor:pointer;outline:none;">其他</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="资讯" style="border:none;background:none;cursor:pointer;outline:none;">资讯</button></li></form>
                     <%--<c:forEach items="${allCategory}" var="category" varStatus="sta">
-                        <form method="post" action="${ctx}/index_list" id="indexCategoryForm">
+                        <form method="post" action="${app}/index_list" id="indexCategoryForm">
                             <li style="margin-top: 15px"><button type="submit" onclick="categoryForm();" id="category" name="category" value="${category.category}" style="border:none;background:none;cursor:pointer;outline:none;">${category.category}</button></li>
                         </form>
                     </c:forEach>--%>
@@ -142,7 +142,7 @@
                         <style>
                             a.hover-red:hover{color:red;}
                         </style>
-                        <a class='hover-red' href="${ctx}/watch?cid=${cont.id}">
+                        <a class='hover-red' href="${app}/watch?cid=${cont.id}">
                         <h2 style="font-weight:bold">${cont.title}</h2></a>
                         <br>
                             <div style=" font-size:16px;height:20px;overflow:hidden;">${cont.content}</div>
@@ -220,14 +220,14 @@
                         <li><a href="javascript:void(0);">« 上一页</a></li>
                     </c:if>
                     <c:if test="${page.pageNum > 1}">
-                        <li class="previous"><a href="${ctx}/index_list?pageNum=${page.pageNum-1}&&id=${user.id}">« 上一页</a></li>
+                        <li class="previous"><a href="${app}/index_list?pageNum=${page.pageNum-1}&&id=${user.id}">« 上一页</a></li>
                     </c:if>
                     <c:forEach begin="${page.startPage}" end="${page.endPage}" var="pn">
                         <c:if test="${page.pageNum==pn}">
                             <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                         </c:if>
                         <c:if test="${page.pageNum!=pn}">
-                            <li ><a href="${ctx}/index_list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
+                            <li ><a href="${app}/index_list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
                         </c:if>
                     </c:forEach>
 
@@ -235,7 +235,7 @@
                         <li><a href="javascript:void(0);">下一页 »</a></li>
                     </c:if>
                     <c:if test="${page.pageNum<page.pages}">
-                        <li><a href="${ctx}/index_list?pageNum=${page.pageNum+1}&&id=${user.id}">下一页 »</a></li>
+                        <li><a href="${app}/index_list?pageNum=${page.pageNum+1}&&id=${user.id}">下一页 »</a></li>
                     </c:if>
 
                 </ul>
@@ -291,7 +291,7 @@
         document.getElementById("wxImg").style.display='none';
     }
     function personal(uId) {
-        this.location =  "${ctx}/list?id="+uId;
+        this.location =  "${app}/list?id="+uId;
     }
 
     /**

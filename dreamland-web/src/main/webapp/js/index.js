@@ -5,7 +5,7 @@ function hideImg(){
     document.getElementById("wxImg").style.display='none';
 }
 function personal(uId) {
-    this.location =  "${ctx}/list?id="+uId;
+    this.location =  "${app}/list?id="+uId;
 }
 
 /**

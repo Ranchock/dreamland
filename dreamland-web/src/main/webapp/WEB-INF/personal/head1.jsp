@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 
-<nav style="background: url(${ctx}/images/head1.png);height: 90px">
+<nav style="background: url(${app}/images/head1.png);height: 90px">
     <div class="header">
         <div class="menu-btn">
             <div class="menu"></div>
@@ -16,14 +16,14 @@
             </a>
         </h1>
         <div class="nav">
-            <a href="${ctx}/index_list" class="active">首页</a>
-            <a href="${ctx}/index_list">热门</a>
-            <a href="${ctx}/message_list?id=${user.id}">留言</a>
-            <a href="${ctx}/list?id=${user.id}">个人空间</a>
+            <a href="${app}/index_list" class="active">首页</a>
+            <a href="${app}/index_list">热门</a>
+            <a href="${app}/message_list?id=${user.id}">留言</a>
+            <a href="${app}/list?id=${user.id}">个人空间</a>
             <a href="me.jsp">关于作者</a>
-            <a href="${ctx}/writedream?id=${user.id}">写博客</a>
+            <a href="${app}/writedream?id=${user.id}">写博客</a>
             <!-- 搜索框 -->
-            <form method="post" action="${ctx}/iref="aist"  id="indexSearchForm" class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
+            <form method="post" action="${app}/iref="aist"  id="indexSearchForm" class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
             <div class="form-group" >
                 <input type="text" id="keyword" name="keyword" value="${keyword}" class="form-control" placeholder="请输入您要搜索的内容..." style="margin-top: 70px;margin-left: 200px;width: 268px;">
             </div>
@@ -38,7 +38,7 @@
         <%--<li class="layui-nav-item"><a href="whisper.html">热门</a></li>--%>
         <%--<li class="layui-nav-item"><a href="leacots.html">留言</a></li>--%>
         <%--<li class="layui-nav-item"><a href="album.html">我的文章</a></li>--%>
-        <%--<li class="layui-nav-item"><a href="${ctx}/list?id=${user.id}">个人空间</a></li>--%>
+        <%--<li class="layui-nav-item"><a href="${app}/list?id=${user.id}">个人空间</a></li>--%>
         <%--</ul>--%>
         <nav/>
         <p class="welcome-text">
@@ -52,7 +52,7 @@
             <c:if test="${not empty user}">
                 <a name="tj_loginp" href="javascript:void(0);"   class="lb" onclick="personal('${user.id}');" style="color: #8f8680"><font color="#9370db">${user.nickName}, 欢迎您！</font></a>
                 &nbsp;&nbsp;
-                <a name="tj_login" class="lb" href="${ctx}/loginout" style="color: #8f8680">[退出]</a>
+                <a name="tj_login" class="lb" href="${app}/loginout" style="color: #8f8680">[退出]</a>
             </c:if>
 
         </div>

@@ -1,25 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head style="background-color: #f4f4f4">
     <meta charset="UTF-8">
     <title>写文章</title>
-    <link href="${ctx}/css/write/writedream.css" rel="stylesheet"/>
+    <link href="${app}/css/write/writedream.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
-    <script src="${ctx}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
+    <script src="${app}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
 
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
-    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
+    <script type="text/javascript" src="${app}/js/skdslider.min.js"></script>
 </head>
 <body>
 <%--头部--%>
@@ -98,8 +98,8 @@
     $(function () {
         editor =  KindEditor.create('#content', {
             basePath: 'css/zui/lib/kindeditor/',
-            uploadJson : '${ctx}/fileUpload',
-            fileManagerJson : '${ctx}/fileManager',
+            uploadJson : '${app}/fileUpload',
+            fileManagerJson : '${app}/fileManager',
             allowFileManager : true,
             bodyClass : 'article-content',
             items : ['source', '|', 'undo', 'redo', '|', 'preview', 'template', 'cut', 'copy', 'paste',

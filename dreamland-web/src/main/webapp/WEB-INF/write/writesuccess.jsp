@@ -1,20 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>写博客</title>
-    <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
     <style>
         .content {
             position:absolute;
@@ -40,17 +40,17 @@
 <script>
     //写新博客
     $("#new-dreamland").click(function () {
-        location.href ="${ctx}/writedream"
+        location.href ="${app}/writedream"
     });
 
     //管理文章
     $("#manage-dreamland").click(function () {
-        location.href ="${ctx}/list?manage=manage"
+        location.href ="${app}/list?manage=manage"
     });
 
     //查看文章
     $("#watch-dreamland").click(function () {
-        location.href ="${ctx}/watch?cid=${content.id}"
+        location.href ="${app}/watch?cid=${content.id}"
     });
 
 

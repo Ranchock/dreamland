@@ -1,16 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录页面</title>
     <!--引入BootStrap样式-->
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet">
-    <link href="${ctx}/css/zui/lib/uploader/zui.uploader.min.css" rel="stylesheet">
-    <link href="${ctx}/css/login.css" rel="stylesheet">
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet">
+    <link href="${app}/css/zui/lib/uploader/zui.uploader.min.css" rel="stylesheet">
+    <link href="${app}/css/login.css" rel="stylesheet">
 </head>
 <body>
 <div class="content">
@@ -26,7 +26,7 @@
             <div class="tab-content">
                 <!--普通登录-->
                 <div class="tab-pane fade in active" id="account-login">
-                    <form id="normal_form" name="form" role="form" class="login-form" action="${ctx}/doLogin" method="post">
+                    <form id="normal_form" name="form" role="form" class="login-form" action="${app}/doLogin" method="post">
                         <div class="form-group">
                             <label for="username" class="sr-only">用户名</label>
                             <input type="text" id="username" name="username" onblur="checkUserName();" value="${email}" class="form-control" placeholder="用户名">
@@ -42,7 +42,7 @@
 
                         <div>
                             <img id="captchaImg" style="CURSOR: pointer" onclick="changeCaptcha()"
-                                 title="看不清楚?请点击刷新验证码!" align='absmiddle' src="${ctx}/captchaServlet"
+                                 title="看不清楚?请点击刷新验证码!" align='absmiddle' src="${app}/captchaServlet"
                                  height="18" width="55">
                             <a href="javascript:;"
                                onClick="changeCaptcha()" style="color: #666;">看不清楚</a> <span id="code_span" style="color: red"></span>
@@ -77,7 +77,7 @@
                 </div>
                 <!--手机登录-->
                 <div class="tab-pane fade" id="phone-login">
-                    <form role="form" class="login-form form-horizontal" id="phone_form" action="${ctx}/doLogin" method="post">
+                    <form role="form" class="login-form form-horizontal" id="phone_form" action="${app}/doLogin" method="post">
                         <div class="form-group">
                             <label for="username" class="sr-only">用户名</label>
                             <div class="col-xs-12">
@@ -117,8 +117,8 @@
         </div>
     </div>`
 </div>
-<script src="${ctx}/js/jquery.min.js"></script>
-<script src="${ctx}/css/zui/js/zui.min.js"></script>
+<script src="${app}/js/jquery.min.js"></script>
+<script src="${app}/css/zui/js/zui.min.js"></script>
 <script>
     //校验用户名
     function checkUserName() {
@@ -154,7 +154,7 @@
     }
     //更换验证码
     function changeCaptcha() {
-        $("#captchaImg").attr('src', '${ctx}/captchaServlet?t=' + (new Date().getTime()));
+        $("#captchaImg").attr('src', '${app}/captchaServlet?t=' + (new Date().getTime()));
     }
 
     //验证码校验
@@ -280,7 +280,7 @@
 
                 $.ajax({
                     method: 'POST',
-                    url: '${ctx}/sendSms',// 发送验证码给ActiveQM, 同时保存验证码到redis数据库
+                    url: '${app}/sendSms',// 发送验证码给ActiveQM, 同时保存验证码到redis数据库
                     data : {
                         telephone : telephone
                     },

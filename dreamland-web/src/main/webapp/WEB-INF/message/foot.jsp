@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <div class="footer-wrap" style="height: 170px">
     <div class="footer w1000" style="height: 170px;padding-top: 0px;margin-top: 20px">

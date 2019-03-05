@@ -1,17 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>注册成功页面</title>
-    <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
 
     <style>
         body,html{
@@ -232,10 +232,10 @@
 </div>
 
 </div>
-<script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
+<script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
 </body>
 <script language=javascript>
     function  showImg(){
@@ -285,7 +285,7 @@
 
     //重新注册点击事件
     function reRegist() {
-        location.href = "${ctx}/register";
+        location.href = "${app}/register";
     }
    
 </script>

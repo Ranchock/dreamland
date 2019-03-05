@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 
 <nav class="navbar navbar-inverse" role="navigation">
@@ -23,17 +23,17 @@
             <!-- 一般导航项目 -->
             <ul class="nav navbar-nav">
                 <li class="active"><a href="your/nice/url">人生就怕坐上四艘船：一艘为名；一艘为利；一艘为色，一艘为气。</a></li>&nbsp;&nbsp;
-                <li style="margin-left: 250px"><a href="${ctx}/index_list">博客首页</a></li>
+                <li style="margin-left: 250px"><a href="${app}/index_list">博客首页</a></li>
             </ul>
             <ul class="nav navbar-nav" >
                 <li><a href="your/nice/url">个人简介</a></li>&nbsp;&nbsp;
             </ul>
 
             <ul class="nav navbar-nav">
-                <li><a href="${ctx}/writedream?id=${user.id}">写博客</a></li>
+                <li><a href="${app}/writedream?id=${user.id}">写博客</a></li>
             </ul>
             <ul class="nav navbar-nav" style="margin-left: 200px">
-                <li><a href="${ctx}/list?id=${user.id}">${user.nickName}
+                <li><a href="${app}/list?id=${user.id}">${user.nickName}
 
                 </a></li>
             </ul>

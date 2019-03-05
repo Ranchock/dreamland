@@ -21,9 +21,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by 12903 on 2018/6/23.
- */
+
 @Service
 public class SolrServiceImpl implements SolrService {
     @Autowired

@@ -50,7 +50,7 @@
         var chart = this;
         this.canvas = context.canvas;
 
-        this.ctx = context;
+        this.app = context;
 
         //Variables global to the chart
         var computeDimension = function(element, dimension) {
@@ -807,46 +807,46 @@
         },
         getMaximumSize = helpers.getMaximumSize = helpers.getMaximumWidth, // legacy support
         retinaScale = helpers.retinaScale = function(chart) {
-            var ctx = chart.ctx,
+            var app = chart.app,
                 width = chart.canvas.width,
                 height = chart.canvas.height;
 
             if(window.devicePixelRatio) {
-                ctx.canvas.style.width = width + "px";
-                ctx.canvas.style.height = height + "px";
-                ctx.canvas.height = height * window.devicePixelRatio;
-                ctx.canvas.width = width * window.devicePixelRatio;
-                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+                app.canvas.style.width = width + "px";
+                app.canvas.style.height = height + "px";
+                app.canvas.height = height * window.devicePixelRatio;
+                app.canvas.width = width * window.devicePixelRatio;
+                app.scale(window.devicePixelRatio, window.devicePixelRatio);
             }
         },
         //-- Canvas methods
         clear = helpers.clear = function(chart) {
-            chart.ctx.clearRect(0, 0, chart.width, chart.height);
+            chart.app.clearRect(0, 0, chart.width, chart.height);
         },
         fontString = helpers.fontString = function(pixelSize, fontStyle, fontFamily) {
             return fontStyle + " " + pixelSize + "px " + fontFamily;
         },
-        longestText = helpers.longestText = function(ctx, font, arrayOfStrings) {
-            ctx.font = font;
+        longestText = helpers.longestText = function(app, font, arrayOfStrings) {
+            app.font = font;
             var longest = 0;
             each(arrayOfStrings, function(string) {
-                var textWidth = ctx.measureText(string).width;
+                var textWidth = app.measureText(string).width;
                 longest = (textWidth > longest) ? textWidth : longest;
             });
             return longest;
         },
-        drawRoundedRectangle = helpers.drawRoundedRectangle = function(ctx, x, y, width, height, radius) {
-            ctx.beginPath();
-            ctx.moveTo(x + radius, y);
-            ctx.lineTo(x + width - radius, y);
-            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-            ctx.lineTo(x + width, y + height - radius);
-            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-            ctx.lineTo(x + radius, y + height);
-            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-            ctx.lineTo(x, y + radius);
-            ctx.quadraticCurveTo(x, y, x + radius, y);
-            ctx.closePath();
+        drawRoundedRectangle = helpers.drawRoundedRectangle = function(app, x, y, width, height, radius) {
+            app.beginPath();
+            app.moveTo(x + radius, y);
+            app.lineTo(x + width - radius, y);
+            app.quadraticCurveTo(x + width, y, x + width, y + radius);
+            app.lineTo(x + width, y + height - radius);
+            app.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            app.lineTo(x + radius, y + height);
+            app.quadraticCurveTo(x, y + height, x, y + height - radius);
+            app.lineTo(x, y + radius);
+            app.quadraticCurveTo(x, y, x + radius, y);
+            app.closePath();
         };
 
 
@@ -1055,7 +1055,7 @@
                         legendColorBackground: this.options.multiTooltipKeyBackground,
                         title: ChartElements[0].label,
                         chart: this.chart,
-                        ctx: this.chart.ctx,
+                        app: this.chart.app,
                         custom: this.options.customTooltips
                     }).draw();
 
@@ -1186,19 +1186,19 @@
         },
         draw: function() {
             if(this.display) {
-                var ctx = this.ctx;
-                ctx.beginPath();
+                var app = this.app;
+                app.beginPath();
 
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.closePath();
+                app.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                app.closePath();
 
-                ctx.strokeStyle = this.strokeColor;
-                ctx.lineWidth = this.strokeWidth;
+                app.strokeStyle = this.strokeColor;
+                app.lineWidth = this.strokeWidth;
 
-                ctx.fillStyle = this.fillColor;
+                app.fillStyle = this.fillColor;
 
-                ctx.fill();
-                ctx.stroke();
+                app.fill();
+                app.stroke();
             }
 
 
@@ -1206,23 +1206,23 @@
             //Highlights control points and the line between them.
             //Handy for dev - stripped in the min version.
 
-            // ctx.save();
-            // ctx.fillStyle = "black";
-            // ctx.strokeStyle = "black"
-            // ctx.beginPath();
-            // ctx.arc(this.controlPoints.inner.x,this.controlPoints.inner.y, 2, 0, Math.PI*2);
-            // ctx.fill();
+            // app.save();
+            // app.fillStyle = "black";
+            // app.strokeStyle = "black"
+            // app.beginPath();
+            // app.arc(this.controlPoints.inner.x,this.controlPoints.inner.y, 2, 0, Math.PI*2);
+            // app.fill();
 
-            // ctx.beginPath();
-            // ctx.arc(this.controlPoints.outer.x,this.controlPoints.outer.y, 2, 0, Math.PI*2);
-            // ctx.fill();
+            // app.beginPath();
+            // app.arc(this.controlPoints.outer.x,this.controlPoints.outer.y, 2, 0, Math.PI*2);
+            // app.fill();
 
-            // ctx.moveTo(this.controlPoints.inner.x,this.controlPoints.inner.y);
-            // ctx.lineTo(this.x, this.y);
-            // ctx.lineTo(this.controlPoints.outer.x,this.controlPoints.outer.y);
-            // ctx.stroke();
+            // app.moveTo(this.controlPoints.inner.x,this.controlPoints.inner.y);
+            // app.lineTo(this.x, this.y);
+            // app.lineTo(this.controlPoints.outer.x,this.controlPoints.outer.y);
+            // app.stroke();
 
-            // ctx.restore();
+            // app.restore();
 
 
 
@@ -1256,32 +1256,32 @@
 
             var easingDecimal = animationPercent || 1;
 
-            var ctx = this.ctx;
+            var app = this.app;
 
-            ctx.beginPath();
+            app.beginPath();
 
-            ctx.arc(this.x, this.y, this.outerRadius, this.startAngle, this.endAngle);
+            app.arc(this.x, this.y, this.outerRadius, this.startAngle, this.endAngle);
 
-            ctx.arc(this.x, this.y, this.innerRadius, this.endAngle, this.startAngle, true);
+            app.arc(this.x, this.y, this.innerRadius, this.endAngle, this.startAngle, true);
 
-            ctx.closePath();
-            ctx.strokeStyle = this.strokeColor;
-            ctx.lineWidth = this.strokeWidth;
+            app.closePath();
+            app.strokeStyle = this.strokeColor;
+            app.lineWidth = this.strokeWidth;
 
-            ctx.fillStyle = this.fillColor;
+            app.fillStyle = this.fillColor;
 
-            ctx.fill();
-            ctx.lineJoin = 'bevel';
+            app.fill();
+            app.lineJoin = 'bevel';
 
             if(this.showStroke) {
-                ctx.stroke();
+                app.stroke();
             }
         }
     });
 
     Chart.Rectangle = Chart.Element.extend({
         draw: function() {
-            var ctx = this.ctx,
+            var app = this.app,
                 halfWidth = this.width / 2,
                 leftX = this.x - halfWidth,
                 rightX = this.x + halfWidth,
@@ -1296,21 +1296,21 @@
                 top += halfStroke;
             }
 
-            ctx.beginPath();
+            app.beginPath();
 
-            ctx.fillStyle = this.fillColor;
-            ctx.strokeStyle = this.strokeColor;
-            ctx.lineWidth = this.strokeWidth;
+            app.fillStyle = this.fillColor;
+            app.strokeStyle = this.strokeColor;
+            app.lineWidth = this.strokeWidth;
 
             // It'd be nice to keep this class totally generic to any rectangle
             // and simply specify which border to miss out.
-            ctx.moveTo(leftX, this.base);
-            ctx.lineTo(leftX, top);
-            ctx.lineTo(rightX, top);
-            ctx.lineTo(rightX, this.base);
-            ctx.fill();
+            app.moveTo(leftX, this.base);
+            app.lineTo(leftX, top);
+            app.lineTo(rightX, top);
+            app.lineTo(rightX, this.base);
+            app.fill();
             if(this.showStroke) {
-                ctx.stroke();
+                app.stroke();
             }
         },
         height: function() {
@@ -1324,9 +1324,9 @@
     Chart.Tooltip = Chart.Element.extend({
         draw: function() {
 
-            var ctx = this.chart.ctx;
+            var app = this.chart.app;
 
-            ctx.font = fontString(this.fontSize, this.fontStyle, this.fontFamily);
+            app.font = fontString(this.fontSize, this.fontStyle, this.fontFamily);
 
             this.xAlign = "center";
             this.yAlign = "above";
@@ -1334,7 +1334,7 @@
             //Distance between the actual element.y position and the start of the tooltip caret
             var caretPadding = this.caretPadding = 2;
 
-            var tooltipWidth = ctx.measureText(this.text).width + 2 * this.xPadding,
+            var tooltipWidth = app.measureText(this.text).width + 2 * this.xPadding,
                 tooltipRectHeight = this.fontSize + 2 * this.yPadding,
                 tooltipHeight = tooltipRectHeight + this.caretHeight + caretPadding;
 
@@ -1352,7 +1352,7 @@
             var tooltipX = this.x - tooltipWidth / 2,
                 tooltipY = this.y - tooltipHeight;
 
-            ctx.fillStyle = this.fillColor;
+            app.fillStyle = this.fillColor;
 
             // Custom Tooltips
             if(this.custom) {
@@ -1361,22 +1361,22 @@
                 switch(this.yAlign) {
                     case "above":
                         //Draw a caret above the x/y
-                        ctx.beginPath();
-                        ctx.moveTo(this.x, this.y - caretPadding);
-                        ctx.lineTo(this.x + this.caretHeight, this.y - (caretPadding + this.caretHeight));
-                        ctx.lineTo(this.x - this.caretHeight, this.y - (caretPadding + this.caretHeight));
-                        ctx.closePath();
-                        ctx.fill();
+                        app.beginPath();
+                        app.moveTo(this.x, this.y - caretPadding);
+                        app.lineTo(this.x + this.caretHeight, this.y - (caretPadding + this.caretHeight));
+                        app.lineTo(this.x - this.caretHeight, this.y - (caretPadding + this.caretHeight));
+                        app.closePath();
+                        app.fill();
                         break;
                     case "below":
                         tooltipY = this.y + caretPadding + this.caretHeight;
                         //Draw a caret below the x/y
-                        ctx.beginPath();
-                        ctx.moveTo(this.x, this.y + caretPadding);
-                        ctx.lineTo(this.x + this.caretHeight, this.y + caretPadding + this.caretHeight);
-                        ctx.lineTo(this.x - this.caretHeight, this.y + caretPadding + this.caretHeight);
-                        ctx.closePath();
-                        ctx.fill();
+                        app.beginPath();
+                        app.moveTo(this.x, this.y + caretPadding);
+                        app.lineTo(this.x + this.caretHeight, this.y + caretPadding + this.caretHeight);
+                        app.lineTo(this.x - this.caretHeight, this.y + caretPadding + this.caretHeight);
+                        app.closePath();
+                        app.fill();
                         break;
                 }
 
@@ -1389,14 +1389,14 @@
                         break;
                 }
 
-                drawRoundedRectangle(ctx, tooltipX, tooltipY, tooltipWidth, tooltipRectHeight, this.cornerRadius);
+                drawRoundedRectangle(app, tooltipX, tooltipY, tooltipWidth, tooltipRectHeight, this.cornerRadius);
 
-                ctx.fill();
+                app.fill();
 
-                ctx.fillStyle = this.textColor;
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.fillText(this.text, tooltipX + tooltipWidth / 2, tooltipY + tooltipRectHeight / 2);
+                app.fillStyle = this.textColor;
+                app.textAlign = "center";
+                app.textBaseline = "middle";
+                app.fillText(this.text, tooltipX + tooltipWidth / 2, tooltipY + tooltipRectHeight / 2);
             }
         }
     });
@@ -1409,11 +1409,11 @@
 
             this.height = (this.labels.length * this.fontSize) + ((this.labels.length - 1) * (this.fontSize / 2)) + (this.yPadding * 2) + this.titleFontSize * 1.5;
 
-            this.ctx.font = this.titleFont;
+            this.app.font = this.titleFont;
 
-            var titleWidth = this.ctx.measureText(this.title).width,
+            var titleWidth = this.app.measureText(this.title).width,
                 //Label has a legend square as well so account for this.
-                labelWidth = longestText(this.ctx, this.font, this.labels) + this.fontSize + 3,
+                labelWidth = longestText(this.app, this.font, this.labels) + this.fontSize + 3,
                 longestTextWidth = max([labelWidth, titleWidth]);
 
             this.width = longestTextWidth + (this.xPadding * 2);
@@ -1454,33 +1454,33 @@
             if(this.custom) {
                 this.custom(this);
             } else {
-                drawRoundedRectangle(this.ctx, this.x, this.y - this.height / 2, this.width, this.height, this.cornerRadius);
-                var ctx = this.ctx;
-                ctx.fillStyle = this.fillColor;
-                ctx.fill();
-                ctx.closePath();
+                drawRoundedRectangle(this.app, this.x, this.y - this.height / 2, this.width, this.height, this.cornerRadius);
+                var app = this.app;
+                app.fillStyle = this.fillColor;
+                app.fill();
+                app.closePath();
 
-                ctx.textAlign = "left";
-                ctx.textBaseline = "middle";
-                ctx.fillStyle = this.titleTextColor;
-                ctx.font = this.titleFont;
+                app.textAlign = "left";
+                app.textBaseline = "middle";
+                app.fillStyle = this.titleTextColor;
+                app.font = this.titleFont;
 
-                ctx.fillText(this.title, this.x + this.xPadding, this.getLineHeight(0));
+                app.fillText(this.title, this.x + this.xPadding, this.getLineHeight(0));
 
-                ctx.font = this.font;
+                app.font = this.font;
                 helpers.each(this.labels, function(label, index) {
-                    ctx.fillStyle = this.textColor;
-                    ctx.fillText(label, this.x + this.xPadding + this.fontSize + 3, this.getLineHeight(index + 1));
+                    app.fillStyle = this.textColor;
+                    app.fillText(label, this.x + this.xPadding + this.fontSize + 3, this.getLineHeight(index + 1));
 
                     //A bit gnarly, but clearing this rectangle breaks when using explorercanvas (clears whole canvas)
-                    //ctx.clearRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize/2, this.fontSize, this.fontSize);
+                    //app.clearRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize/2, this.fontSize, this.fontSize);
                     //Instead we'll make a white filled block to put the legendColour palette over.
 
-                    ctx.fillStyle = this.legendColorBackground;
-                    ctx.fillRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize / 2, this.fontSize, this.fontSize);
+                    app.fillStyle = this.legendColorBackground;
+                    app.fillRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize / 2, this.fontSize, this.fontSize);
 
-                    ctx.fillStyle = this.legendColors[index].fill;
-                    ctx.fillRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize / 2, this.fontSize, this.fontSize);
+                    app.fillStyle = this.legendColors[index].fill;
+                    app.fillRect(this.x + this.xPadding, this.getLineHeight(index + 1) - this.fontSize / 2, this.fontSize, this.fontSize);
 
 
                 }, this);
@@ -1502,7 +1502,7 @@
                     value: (this.min + (i * this.stepValue)).toFixed(stepDecimalPlaces)
                 }));
             }
-            this.yLabelWidth = (this.display && this.showLabels) ? longestText(this.ctx, this.font, this.yLabels) : 0;
+            this.yLabelWidth = (this.display && this.showLabels) ? longestText(this.app, this.font, this.yLabels) : 0;
         },
         addXLabel: function(label) {
             this.xLabels.push(label);
@@ -1566,10 +1566,10 @@
             //Get the width of each grid by calculating the difference
             //between x offsets between 0 and 1.
 
-            this.ctx.font = this.font;
+            this.app.font = this.font;
 
-            var firstWidth = this.ctx.measureText(this.xLabels[0]).width,
-                lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width,
+            var firstWidth = this.app.measureText(this.xLabels[0]).width,
+                lastWidth = this.app.measureText(this.xLabels[this.xLabels.length - 1]).width,
                 firstRotated,
                 lastRotated;
 
@@ -1579,7 +1579,7 @@
 
             this.xLabelRotation = 0;
             if(this.display) {
-                var originalLabelWidth = longestText(this.ctx, this.font, this.xLabels),
+                var originalLabelWidth = longestText(this.app, this.font, this.xLabels),
                     cosRotation,
                     firstRotatedWidth;
                 this.xLabelWidth = originalLabelWidth;
@@ -1642,22 +1642,22 @@
             this.fit();
         },
         draw: function() {
-            var ctx = this.ctx,
+            var app = this.app,
                 yLabelGap = (this.endPoint - this.startPoint) / this.steps,
                 xStart = Math.round(this.xScalePaddingLeft);
             if(this.display) {
-                ctx.fillStyle = this.textColor;
-                ctx.font = this.font;
+                app.fillStyle = this.textColor;
+                app.font = this.font;
                 var beyondLineLength = this.showBeyondLine ? 5 : 0;
                 each(this.yLabels, function(labelString, index) {
                     var yLabelCenter = this.endPoint - (yLabelGap * index),
                         linePositionY = Math.round(yLabelCenter),
                         drawHorizontalLine = this.showHorizontalLines;
 
-                    ctx.textAlign = "right";
-                    ctx.textBaseline = "middle";
+                    app.textAlign = "right";
+                    app.textBaseline = "middle";
                     if(this.showLabels) {
-                        ctx.fillText(labelString, xStart - 10, yLabelCenter);
+                        app.fillText(labelString, xStart - 10, yLabelCenter);
                     }
 
                     // This is X axis, so draw it
@@ -1666,35 +1666,35 @@
                     }
 
                     if(drawHorizontalLine) {
-                        ctx.beginPath();
+                        app.beginPath();
                     }
 
                     if(index > 0) {
                         // This is a grid line in the centre, so drop that
-                        ctx.lineWidth = this.gridLineWidth;
-                        ctx.strokeStyle = this.gridLineColor;
+                        app.lineWidth = this.gridLineWidth;
+                        app.strokeStyle = this.gridLineColor;
                     } else {
                         // This is the first line on the scale
-                        ctx.lineWidth = this.lineWidth;
-                        ctx.strokeStyle = this.lineColor;
+                        app.lineWidth = this.lineWidth;
+                        app.strokeStyle = this.lineColor;
                     }
 
-                    linePositionY += helpers.aliasPixel(ctx.lineWidth);
+                    linePositionY += helpers.aliasPixel(app.lineWidth);
 
                     if(drawHorizontalLine) {
-                        ctx.moveTo(xStart, linePositionY);
-                        ctx.lineTo(this.width, linePositionY);
-                        ctx.stroke();
-                        ctx.closePath();
+                        app.moveTo(xStart, linePositionY);
+                        app.lineTo(this.width, linePositionY);
+                        app.stroke();
+                        app.closePath();
                     }
 
-                    ctx.lineWidth = this.lineWidth;
-                    ctx.strokeStyle = this.lineColor;
-                    ctx.beginPath();
-                    ctx.moveTo(xStart - beyondLineLength, linePositionY);
-                    ctx.lineTo(xStart, linePositionY);
-                    ctx.stroke();
-                    ctx.closePath();
+                    app.lineWidth = this.lineWidth;
+                    app.strokeStyle = this.lineColor;
+                    app.beginPath();
+                    app.moveTo(xStart - beyondLineLength, linePositionY);
+                    app.lineTo(xStart, linePositionY);
+                    app.stroke();
+                    app.closePath();
 
                 }, this);
 
@@ -1711,46 +1711,46 @@
                     }
 
                     if(drawVerticalLine) {
-                        ctx.beginPath();
+                        app.beginPath();
                     }
 
                     if(index > 0) {
                         // This is a grid line in the centre, so drop that
-                        ctx.lineWidth = this.gridLineWidth;
-                        ctx.strokeStyle = this.gridLineColor;
+                        app.lineWidth = this.gridLineWidth;
+                        app.strokeStyle = this.gridLineColor;
                     } else {
                         // This is the first line on the scale
-                        ctx.lineWidth = this.lineWidth;
-                        ctx.strokeStyle = this.lineColor;
+                        app.lineWidth = this.lineWidth;
+                        app.strokeStyle = this.lineColor;
                     }
 
                     if(drawVerticalLine) {
-                        ctx.moveTo(linePos, this.endPoint);
-                        ctx.lineTo(linePos, this.startPoint - 3);
-                        ctx.stroke();
-                        ctx.closePath();
+                        app.moveTo(linePos, this.endPoint);
+                        app.lineTo(linePos, this.startPoint - 3);
+                        app.stroke();
+                        app.closePath();
                     }
 
 
-                    ctx.lineWidth = this.lineWidth;
-                    ctx.strokeStyle = this.lineColor;
+                    app.lineWidth = this.lineWidth;
+                    app.strokeStyle = this.lineColor;
 
 
                     // Small lines at the bottom of the base grid line
-                    ctx.beginPath();
-                    ctx.moveTo(linePos, this.endPoint);
-                    ctx.lineTo(linePos, this.endPoint + beyondLineLength);
-                    ctx.stroke();
-                    ctx.closePath();
+                    app.beginPath();
+                    app.moveTo(linePos, this.endPoint);
+                    app.lineTo(linePos, this.endPoint + beyondLineLength);
+                    app.stroke();
+                    app.closePath();
 
-                    ctx.save();
-                    ctx.translate(xPos, (isRotated) ? this.endPoint + 12 : this.endPoint + 8);
-                    ctx.rotate(toRadians(this.xLabelRotation) * -1);
-                    ctx.font = this.font;
-                    ctx.textAlign = (isRotated) ? "right" : "center";
-                    ctx.textBaseline = (isRotated) ? "middle" : "top";
-                    ctx.fillText(label, 0, 0);
-                    ctx.restore();
+                    app.save();
+                    app.translate(xPos, (isRotated) ? this.endPoint + 12 : this.endPoint + 8);
+                    app.rotate(toRadians(this.xLabelRotation) * -1);
+                    app.font = this.font;
+                    app.textAlign = (isRotated) ? "right" : "center";
+                    app.textBaseline = (isRotated) ? "middle" : "top";
+                    app.fillText(label, 0, 0);
+                    app.restore();
                 }, this);
 
             }
@@ -1839,11 +1839,11 @@
                 radiusReductionRight,
                 radiusReductionLeft,
                 maxWidthRadius;
-            this.ctx.font = fontString(this.pointLabelFontSize, this.pointLabelFontStyle, this.pointLabelFontFamily);
+            this.app.font = fontString(this.pointLabelFontSize, this.pointLabelFontStyle, this.pointLabelFontFamily);
             for(i = 0; i < this.valuesCount; i++) {
                 // 5px to space the text slightly out - similar to what we do in the draw function.
                 pointPosition = this.getPointPosition(i, largestPossibleRadius);
-                textWidth = this.ctx.measureText(template(this.templateString, {
+                textWidth = this.app.measureText(template(this.templateString, {
                     value: this.labels[i]
                 })).width + 5;
                 if(i === 0 || i === this.valuesCount / 2) {
@@ -1921,7 +1921,7 @@
         },
         draw: function() {
             if(this.display) {
-                var ctx = this.ctx;
+                var app = this.app;
                 each(this.yLabels, function(label, index) {
                     // Don't draw a centre value
                     if(index > 0) {
@@ -1931,64 +1931,64 @@
 
                         // Draw circular lines around the scale
                         if(this.lineWidth > 0) {
-                            ctx.strokeStyle = this.lineColor;
-                            ctx.lineWidth = this.lineWidth;
+                            app.strokeStyle = this.lineColor;
+                            app.lineWidth = this.lineWidth;
 
                             if(this.lineArc) {
-                                ctx.beginPath();
-                                ctx.arc(this.xCenter, this.yCenter, yCenterOffset, 0, Math.PI * 2);
-                                ctx.closePath();
-                                ctx.stroke();
+                                app.beginPath();
+                                app.arc(this.xCenter, this.yCenter, yCenterOffset, 0, Math.PI * 2);
+                                app.closePath();
+                                app.stroke();
                             } else {
-                                ctx.beginPath();
+                                app.beginPath();
                                 for(var i = 0; i < this.valuesCount; i++) {
                                     pointPosition = this.getPointPosition(i, this.calculateCenterOffset(this.min + (index * this.stepValue)));
                                     if(i === 0) {
-                                        ctx.moveTo(pointPosition.x, pointPosition.y);
+                                        app.moveTo(pointPosition.x, pointPosition.y);
                                     } else {
-                                        ctx.lineTo(pointPosition.x, pointPosition.y);
+                                        app.lineTo(pointPosition.x, pointPosition.y);
                                     }
                                 }
-                                ctx.closePath();
-                                ctx.stroke();
+                                app.closePath();
+                                app.stroke();
                             }
                         }
                         if(this.showLabels) {
-                            ctx.font = fontString(this.fontSize, this.fontStyle, this.fontFamily);
+                            app.font = fontString(this.fontSize, this.fontStyle, this.fontFamily);
                             if(this.showLabelBackdrop) {
-                                var labelWidth = ctx.measureText(label).width;
-                                ctx.fillStyle = this.backdropColor;
-                                ctx.fillRect(
+                                var labelWidth = app.measureText(label).width;
+                                app.fillStyle = this.backdropColor;
+                                app.fillRect(
                                     this.xCenter - labelWidth / 2 - this.backdropPaddingX,
                                     yHeight - this.fontSize / 2 - this.backdropPaddingY,
                                     labelWidth + this.backdropPaddingX * 2,
                                     this.fontSize + this.backdropPaddingY * 2
                                 );
                             }
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = "middle";
-                            ctx.fillStyle = this.fontColor;
-                            ctx.fillText(label, this.xCenter, yHeight);
+                            app.textAlign = 'center';
+                            app.textBaseline = "middle";
+                            app.fillStyle = this.fontColor;
+                            app.fillText(label, this.xCenter, yHeight);
                         }
                     }
                 }, this);
 
                 if(!this.lineArc) {
-                    ctx.lineWidth = this.angleLineWidth;
-                    ctx.strokeStyle = this.angleLineColor;
+                    app.lineWidth = this.angleLineWidth;
+                    app.strokeStyle = this.angleLineColor;
                     for(var i = this.valuesCount - 1; i >= 0; i--) {
                         if(this.angleLineWidth > 0) {
                             var outerPosition = this.getPointPosition(i, this.calculateCenterOffset(this.max));
-                            ctx.beginPath();
-                            ctx.moveTo(this.xCenter, this.yCenter);
-                            ctx.lineTo(outerPosition.x, outerPosition.y);
-                            ctx.stroke();
-                            ctx.closePath();
+                            app.beginPath();
+                            app.moveTo(this.xCenter, this.yCenter);
+                            app.lineTo(outerPosition.x, outerPosition.y);
+                            app.stroke();
+                            app.closePath();
                         }
                         // Extra 3px out for some label spacing
                         var pointLabelPosition = this.getPointPosition(i, this.calculateCenterOffset(this.max) + 5);
-                        ctx.font = fontString(this.pointLabelFontSize, this.pointLabelFontStyle, this.pointLabelFontFamily);
-                        ctx.fillStyle = this.pointLabelFontColor;
+                        app.font = fontString(this.pointLabelFontSize, this.pointLabelFontStyle, this.pointLabelFontFamily);
+                        app.fillStyle = this.pointLabelFontColor;
 
                         var labelsCount = this.labels.length,
                             halfLabelsCount = this.labels.length / 2,
@@ -1996,25 +1996,25 @@
                             upperHalf = (i < quarterLabelsCount || i > labelsCount - quarterLabelsCount),
                             exactQuarter = (i === quarterLabelsCount || i === labelsCount - quarterLabelsCount);
                         if(i === 0) {
-                            ctx.textAlign = 'center';
+                            app.textAlign = 'center';
                         } else if(i === halfLabelsCount) {
-                            ctx.textAlign = 'center';
+                            app.textAlign = 'center';
                         } else if(i < halfLabelsCount) {
-                            ctx.textAlign = 'left';
+                            app.textAlign = 'left';
                         } else {
-                            ctx.textAlign = 'right';
+                            app.textAlign = 'right';
                         }
 
                         // Set the correct text baseline based on outer positioning
                         if(exactQuarter) {
-                            ctx.textBaseline = 'middle';
+                            app.textBaseline = 'middle';
                         } else if(upperHalf) {
-                            ctx.textBaseline = 'bottom';
+                            app.textBaseline = 'bottom';
                         } else {
-                            ctx.textBaseline = 'top';
+                            app.textBaseline = 'top';
                         }
 
-                        ctx.fillText(this.labels[i], pointLabelPosition.x, pointLabelPosition.y);
+                        app.fillText(this.labels[i], pointLabelPosition.x, pointLabelPosition.y);
                     }
                 }
             }
@@ -2177,7 +2177,7 @@
                 radius: this.options.pointDotRadius,
                 display: this.options.pointDot,
                 hitDetectionRadius: this.options.pointHitDetectionRadius,
-                ctx: this.chart.ctx,
+                app: this.chart.app,
                 inRange: function(mouseX) {
                     return(Math.pow(mouseX - this.x, 2) < Math.pow(this.radius + this.hitDetectionRadius, 2));
                 }
@@ -2303,7 +2303,7 @@
                 templateString: this.options.scaleLabel,
                 height: this.chart.height,
                 width: this.chart.width,
-                ctx: this.chart.ctx,
+                app: this.chart.app,
                 textColor: this.options.scaleFontColor,
                 fontSize: this.options.scaleFontSize,
                 fontStyle: this.options.scaleFontStyle,
@@ -2388,7 +2388,7 @@
             var easingDecimal = ease || 1;
             this.clear();
 
-            var ctx = this.chart.ctx;
+            var app = this.chart.app;
 
             // Some helper methods for getting the next/prev points
             var hasValue = function(item) {
@@ -2452,18 +2452,18 @@
 
 
                 //Draw the line between all the points
-                ctx.lineWidth = this.options.datasetStrokeWidth;
-                ctx.strokeStyle = dataset.strokeColor;
-                ctx.beginPath();
+                app.lineWidth = this.options.datasetStrokeWidth;
+                app.strokeStyle = dataset.strokeColor;
+                app.beginPath();
 
                 helpers.each(pointsWithValues, function(point, index) {
                     if(index === 0) {
-                        ctx.moveTo(point.x, point.y);
+                        app.moveTo(point.x, point.y);
                     } else {
                         if(this.options.bezierCurve) {
                             var previous = previousPoint(point, pointsWithValues, index);
 
-                            ctx.bezierCurveTo(
+                            app.bezierCurveTo(
                                 previous.controlPoints.outer.x,
                                 previous.controlPoints.outer.y,
                                 point.controlPoints.inner.x,
@@ -2472,20 +2472,20 @@
                                 point.y
                             );
                         } else {
-                            ctx.lineTo(point.x, point.y);
+                            app.lineTo(point.x, point.y);
                         }
                     }
                 }, this);
 
-                ctx.stroke();
+                app.stroke();
 
                 if(this.options.datasetFill && pointsWithValues.length > 0) {
                     //Round off the line by going to the base of the chart, back to the start, then fill.
-                    ctx.lineTo(pointsWithValues[pointsWithValues.length - 1].x, this.scale.endPoint);
-                    ctx.lineTo(pointsWithValues[0].x, this.scale.endPoint);
-                    ctx.fillStyle = dataset.fillColor;
-                    ctx.closePath();
-                    ctx.fill();
+                    app.lineTo(pointsWithValues[pointsWithValues.length - 1].x, this.scale.endPoint);
+                    app.lineTo(pointsWithValues[0].x, this.scale.endPoint);
+                    app.fillStyle = dataset.fillColor;
+                    app.closePath();
+                    app.fill();
                 }
 
                 //Now draw the points over the line
@@ -2611,7 +2611,7 @@
             this.outerRadius = (helpers.min([this.chart.width, this.chart.height]) - this.options.segmentStrokeWidth / 2) / 2;
 
             this.SegmentArc = Chart.Arc.extend({
-                ctx: this.chart.ctx,
+                app: this.chart.app,
                 x: this.chart.width / 2,
                 y: this.chart.height / 2
             });
@@ -2743,12 +2743,12 @@
                     label: segment.label
                 });
 
-            var ctx = this.chart.ctx;
-            ctx.font = helpers.fontString(options.scaleFontSize, options.scaleFontStyle, options.scaleFontFamily);
-            ctx.textBaseline = "middle";
-            ctx.textAlign = "center";
+            var app = this.chart.app;
+            app.font = helpers.fontString(options.scaleFontSize, options.scaleFontStyle, options.scaleFontFamily);
+            app.textBaseline = "middle";
+            app.textAlign = "center";
 
-            var textWidth = ctx.measureText(text).width;
+            var textWidth = app.measureText(text).width;
             var chartWidthHalf = this.chart.width / 2;
             var chartHeightHalf = this.chart.height / 2;
 
@@ -2756,8 +2756,8 @@
                 var isRight = x >= 0;
                 var lineX = x + chartWidthHalf;
                 var lineY = y + chartHeightHalf;
-                ctx.textAlign = isRight ? 'left' : 'right';
-                ctx.measureText(text).width;
+                app.textAlign = isRight ? 'left' : 'right';
+                app.measureText(text).width;
                 if(isRight) {
                     x = Math.max(chartWidthHalf + segment.outerRadius + 10, x + 30 + chartWidthHalf);
                 } else {
@@ -2778,21 +2778,21 @@
                 y = (labelPos - 1) * textHeight + options.scaleFontSize / 2;
                 labelPosMap[labelPos*labelPosDirection] = true;
 
-                ctx.beginPath();
-                ctx.moveTo(lineX, lineY);
-                ctx.lineTo(x, y);
+                app.beginPath();
+                app.moveTo(lineX, lineY);
+                app.lineTo(x, y);
                 x = isRight ? (x + 5) : (x - 5);
-                ctx.lineTo(x, y);
-                ctx.strokeStyle = ($.zui && $.zui.Color) ? (new $.zui.Color(segment.fillColor).fade(40).toCssStr()) : segment.fillColor;
-                ctx.strokeWidth = options.scaleLineWidth;
-                ctx.stroke();
-                ctx.fillStyle = segment.fillColor;
+                app.lineTo(x, y);
+                app.strokeStyle = ($.zui && $.zui.Color) ? (new $.zui.Color(segment.fillColor).fade(40).toCssStr()) : segment.fillColor;
+                app.strokeWidth = options.scaleLineWidth;
+                app.stroke();
+                app.fillStyle = segment.fillColor;
             } else { // inside
                 x = x * 0.7 + chartWidthHalf;
                 y = y * 0.7 + chartHeightHalf;
-                ctx.fillStyle = ($.zui && $.zui.Color) ? (new $.zui.Color(segment.fillColor).contrast().toCssStr()) : '#fff';
+                app.fillStyle = ($.zui && $.zui.Color) ? (new $.zui.Color(segment.fillColor).contrast().toCssStr()) : '#fff';
             }
-            ctx.fillText(text, x, y);
+            app.fillText(text, x, y);
         },
         // ZUI change end
         draw: function(easeDecimal) {
@@ -3000,7 +3000,7 @@
             this.BarClass = Chart.Rectangle.extend({
                 strokeWidth: this.options.barStrokeWidth,
                 showStroke: this.options.barShowStroke,
-                ctx: this.chart.ctx
+                app: this.chart.app
             });
 
             //Iterate through each of the datasets, and build this into a property of the chart
@@ -3106,7 +3106,7 @@
                 templateString: this.options.scaleLabel,
                 height: this.chart.height,
                 width: this.chart.width,
-                ctx: this.chart.ctx,
+                app: this.chart.app,
                 textColor: this.options.scaleFontColor,
                 fontSize: this.options.scaleFontSize,
                 fontStyle: this.options.scaleFontStyle,
@@ -3201,19 +3201,19 @@
             }
 
             var y = placement === 'insdie' ? (bar.y + 10) : (bar.y - 10);
-            var ctx = this.chart.ctx;
-            ctx.font = helpers.fontString(options.scaleFontSize, options.scaleFontStyle, options.scaleFontFamily);
-            ctx.textBaseline = "middle";
-            ctx.textAlign = "center";
-            ctx.fillStyle = options.scaleFontColor;
-            ctx.fillText(bar.value, bar.x, y);
+            var app = this.chart.app;
+            app.font = helpers.fontString(options.scaleFontSize, options.scaleFontStyle, options.scaleFontFamily);
+            app.textBaseline = "middle";
+            app.textAlign = "center";
+            app.fillStyle = options.scaleFontColor;
+            app.fillText(bar.value, bar.x, y);
         },
         /// ZUI change end
         draw: function(ease) {
             var easingDecimal = ease || 1;
             this.clear();
 
-            var ctx = this.chart.ctx;
+            var app = this.chart.app;
 
             this.scale.draw(easingDecimal);
 

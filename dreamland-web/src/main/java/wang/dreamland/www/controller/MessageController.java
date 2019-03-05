@@ -46,10 +46,4 @@ public class MessageController extends BaseController{
         return "message/message";
     }
 
-    /**
-     * 留言
-     *
-     *
-     *
-     */
 }

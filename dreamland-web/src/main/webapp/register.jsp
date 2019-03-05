@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,9 +11,9 @@
 	<meta name="content" content="梦境网">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <link type="text/css" rel="stylesheet" href="${ctx}/css/dreamland.css">
-    <link type="text/css" rel="stylesheet" href="${ctx}/css/register.css">
-    <script type="text/javascript" src="${ctx}/js/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="${app}/css/dreamland.css">
+    <link type="text/css" rel="stylesheet" href="${app}/css/register.css">
+    <script type="text/javascript" src="${app}/js/jquery.min.js"></script>
 </head>
 
 <body class="login_bj">
@@ -22,7 +22,7 @@
     	<div class="zc">
         	<div class="bj_bai" style="height: 408px">
             <h3>欢迎注册</h3>
-       	  	  <form action="${ctx}/doRegister" method="post" id="registerForm">
+       	  	  <form action="${app}/doRegister" method="post" id="registerForm">
                   <span id="reg_span"></span>
                 <input id="phone" name="phone" type="text" class="kuang_txt phone" placeholder="手机号" onblur="checkPhone();">
                   <br/>
@@ -39,7 +39,7 @@
                   <input id="code" name="code" type="text" class="kuang_txt yanzm" placeholder="验证码" onblur="checkCode()">
                   <div>
                       <img id="captchaImg" style="CURSOR: pointer" onclick="changeCaptcha()"
-                           title="看不清楚?请点击刷新验证码!" align='absmiddle' src="${ctx}/captchaServlet"
+                           title="看不清楚?请点击刷新验证码!" align='absmiddle' src="${app}/captchaServlet"
                            height="18" width="55">
                       <a href="javascript:;"
                          onClick="changeCaptcha()" style="color: #666;">看不清楚</a> <span id="code_span" style="color: red"></span>
@@ -89,7 +89,7 @@
 
     //更换验证码
     function changeCaptcha() {
-        $("#captchaImg").attr('src', '${ctx}/captchaServlet?t=' + (new Date().getTime()));
+        $("#captchaImg").attr('src', '${app}/captchaServlet?t=' + (new Date().getTime()));
     }
 
     //根据内容增加而增加高度

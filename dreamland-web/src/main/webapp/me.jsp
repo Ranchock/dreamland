@@ -1,26 +1,26 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>FootBall land&足球大陆</title>
     <!--引入BootStrap样式-->
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
 
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
-    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
+    <script type="text/javascript" src="${app}/js/skdslider.min.js"></script>
 
 
 </head>
 <body style="background: #f4f4f4">
-<script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
+<script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
 
 <%--头部--%>
 <%@ include file="head.jsp"%>

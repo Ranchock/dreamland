@@ -14,11 +14,9 @@ import wang.dreamland.www.service.UserContentService;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by 12903 on 2018/6/21.
- */
-@ContextConfiguration(locations = {"classpath:applicationContext-redis.xml","classpath:spring-mybatis.xml","classpath:applicationContext-activemq.xml","classpath:applicationContext-solr.xml"})
-public class TestSolr extends AbstractJUnit4SpringContextTests {
+
+@ContextConfiguration(locations = {"classpath:applicationContext-redis.xml","classpath:spring-mybatis.xml","classpath:applicationContext-solr.xml"})
+public class TestSolrJ extends AbstractJUnit4SpringContextTests {
     @Autowired
     private SolrClient solrServer;
 
@@ -30,13 +28,12 @@ public class TestSolr extends AbstractJUnit4SpringContextTests {
 
         //1.创建一个文档对象
         SolrInputDocument inputDocument = new SolrInputDocument();
-        inputDocument.addField( "id", "34" );
+        inputDocument.addField( "id", "32" );
         inputDocument.addField( "item_title", "ssm项目开发实战" );
-        inputDocument.addField( "item_content", "ssm指的是:Spring MVC + Spring + Mybatis" );
         inputDocument.addField( "item_image", "www.ssm.png" );
         inputDocument.addField( "author", "wly" );
         //2.将文档写入索引库中
-        solrServer.add( inputDocument );
+        solrServer.add(inputDocument);
         //3.提交
         solrServer.commit();
     }
@@ -70,7 +67,7 @@ public class TestSolr extends AbstractJUnit4SpringContextTests {
     public void testDelete(){
 
         try {
-            solrServer.deleteById("34");
+            solrServer.deleteById("32");
             solrServer.commit();
         } catch (SolrServerException e) {
             e.printStackTrace();

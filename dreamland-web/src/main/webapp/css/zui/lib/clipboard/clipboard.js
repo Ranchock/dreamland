@@ -287,26 +287,26 @@ function E () {
 }
 
 E.prototype = {
-	on: function (name, callback, ctx) {
+	on: function (name, callback, app) {
     var e = this.e || (this.e = {});
 
     (e[name] || (e[name] = [])).push({
       fn: callback,
-      ctx: ctx
+      app: app
     });
 
     return this;
   },
 
-  once: function (name, callback, ctx) {
+  once: function (name, callback, app) {
     var self = this;
     function listener () {
       self.off(name, listener);
-      callback.apply(ctx, arguments);
+      callback.apply(app, arguments);
     };
 
     listener._ = callback
-    return this.on(name, listener, ctx);
+    return this.on(name, listener, app);
   },
 
   emit: function (name) {
@@ -316,7 +316,7 @@ E.prototype = {
     var len = evtArr.length;
 
     for (i; i < len; i++) {
-      evtArr[i].fn.apply(evtArr[i].ctx, data);
+      evtArr[i].fn.apply(evtArr[i].app, data);
     }
 
     return this;

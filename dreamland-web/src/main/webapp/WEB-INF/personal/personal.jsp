@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +11,20 @@
     <!--头部and尾部 -->
     <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../res/css/main.css">
-    <script type="text/javascript" src="${ctx}/js/skdslider.min.js"></script>
+    <script type="text/javascript" src="${app}/js/skdslider.min.js"></script>
 
 
-    <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/personal/personal.css" rel="stylesheet"/>
-    <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
-    <script src="${ctx}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
+    <link href="${app}/css/personal/personal.css" rel="stylesheet"/>
+    <script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
+    <script src="${app}/css/zui/lib/kindeditor/kindeditor.min.js"></script>
 
     <!--[if lt IE 9]>
     <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
@@ -95,7 +95,7 @@
             </div>
 
             <div style="float: left;margin-top: 40px; margin-left: 130px;">
-                <a href="${ctx}/profile"><i class="icon icon-edit"></i><span style="margin-left: 10px">修改个人资料</span></a>
+                <a href="${app}/profile"><i class="icon icon-edit"></i><span style="margin-left: 10px">修改个人资料</span></a>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@
             <ul style="font-size: 12px" id="release-dreamland-ul">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <li class="dreamland-fix">
-                        <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
+                        <a href="${app}/watch?cid=${cont.id}">${cont.title}</a>
                         <span class="bar-read">评论 (${cont.commentNum})</span>
                         <span class="bar-commend">${cont.upvote}人阅读</span>
                         <hr/>
@@ -213,14 +213,14 @@
                         <li class="previous"><a href="javascript:void(0);">« 上一页</a></li>
                     </c:if>
                     <c:if test="${page.pageNum > 1}">
-                        <li class="previous"><a href="${ctx}/list?pageNum=${page.pageNum-1}&&id=${user.id}">« 上一页</a></li>
+                        <li class="previous"><a href="${app}/list?pageNum=${page.pageNum-1}&&id=${user.id}">« 上一页</a></li>
                     </c:if>
                     <c:forEach begin="1" end="${page.pages}" var="pn">
                         <c:if test="${page.pageNum==pn}">
                             <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                         </c:if>
                         <c:if test="${page.pageNum!=pn}">
-                            <li ><a href="${ctx}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
+                            <li ><a href="${app}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
                         </c:if>
                     </c:forEach>
 
@@ -228,7 +228,7 @@
                         <li><a href="javascript:void(0);">下一页 »</a></li>
                     </c:if>
                     <c:if test="${page.pageNum<page.pages}">
-                        <li><a href="${ctx}/list?pageNum=${page.pageNum+1}&&id=${user.id}">下一页 »</a></li>
+                        <li><a href="${app}/list?pageNum=${page.pageNum+1}&&id=${user.id}">下一页 »</a></li>
                     </c:if>
 
                 </ul>
@@ -241,9 +241,9 @@
             <ul style="font-size: 12px" id="update-dreamland-ul">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <li class="dreamland-fix">
-                        <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
-                        <a href="${ctx}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
-                        <a href="${ctx}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
+                        <a href="${app}/watch?cid=${cont.id}">${cont.title}</a>
+                        <a href="${app}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
+                        <a href="${app}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
                         <hr/>
                     </li>
                 </c:forEach>
@@ -284,9 +284,9 @@
             <ul style="font-size: 12px">
                 <c:forEach var="cont" items="${page2.result}" varStatus="i">
                 <li class="dreamland-fix">
-                    <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
-                    <a href="${ctx}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
-                    <a href="${ctx}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
+                    <a href="${app}/watch?cid=${cont.id}">${cont.title}</a>
+                    <a href="${app}/deleteContent?cid=${cont.id}"><span class="bar-delete">删除</span></a>
+                    <a href="${app}/writedream?cid=${cont.id}"><span class="bar-update">修改</span></a>
                     <hr/>
                 </li>
                 </c:forEach>
@@ -299,14 +299,14 @@
                     <li class="previous"><a href="javascript:void(0);">« 上一页</a></li>
                 </c:if>
                 <c:if test="${page2.pageNum > 1}">
-                    <li class="previous"><a href="${ctx}/list?pageNum=${page2.pageNum-1}&&id=${user.id}">« 上一页</a></li>
+                    <li class="previous"><a href="${app}/list?pageNum=${page2.pageNum-1}&&id=${user.id}">« 上一页</a></li>
                 </c:if>
                 <c:forEach begin="1" end="${page.pages}" var="pn">
                     <c:if test="${page2.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
                     <c:if test="${page2.pageNum!=pn}">
-                        <li ><a href="${ctx}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
+                        <li ><a href="${app}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
                     </c:if>
                 </c:forEach>
 
@@ -314,7 +314,7 @@
                     <li><a href="javascript:void(0);">下一页 »</a></li>
                 </c:if>
                 <c:if test="${page2.pageNum<page2.pages}">
-                    <li><a href="${ctx}/list?pageNum=${page2.pageNum+1}&&id=${user.id}">下一页 »</a></li>
+                    <li><a href="${app}/list?pageNum=${page2.pageNum+1}&&id=${user.id}">下一页 »</a></li>
                 </c:if>
 
             </ul>
@@ -333,7 +333,7 @@
                 <ul style="font-size: 12px">
                     <c:forEach var="cont" items="${hotPage.result}" varStatus="i">
                     <li class="dreamland-fix">
-                        <a href="${ctx}/watch?cid=${cont.id}">${cont.title}</a>
+                        <a href="${app}/watch?cid=${cont.id}">${cont.title}</a>
                         <span class="bar-read">评论 (${cont.commentNum} )</span>
                         <span class="bar-commend">${cont.upvote}人阅读</span>
                         <hr/>
@@ -350,14 +350,14 @@
                     <li class="previous"><a href="javascript:void(0);">« 上一页</a></li>
                 </c:if>
                 <c:if test="${hotPage.pageNum > 1}">
-                    <li class="previous"><a href="${ctx}/list?pageNum=${hotPage.pageNum-1}&&id=${user.id}">« 上一页</a></li>
+                    <li class="previous"><a href="${app}/list?pageNum=${hotPage.pageNum-1}&&id=${user.id}">« 上一页</a></li>
                 </c:if>
                 <c:forEach begin="1" end="${hotPage.pages}" var="pn">
                     <c:if test="${hotPage.pageNum==pn}">
                         <li class="active"><a href="javascript:void(0);">${pn}</a></li>
                     </c:if>
                     <c:if test="${hotPage.pageNum!=pn}">
-                        <li ><a href="${ctx}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
+                        <li ><a href="${app}/list?pageNum=${pn}&&id=${user.id}">${pn}</a></li>
                     </c:if>
                 </c:forEach>
 
@@ -365,7 +365,7 @@
                     <li><a href="javascript:void(0);">下一页 »</a></li>
                 </c:if>
                 <c:if test="${hotPage.pageNum<hotPage.pages}">
-                    <li><a href="${ctx}/list?pageNum=${hotPage.pageNum+1}&&id=${user.id}">下一页 »</a></li>
+                    <li><a href="${app}/list?pageNum=${hotPage.pageNum+1}&&id=${user.id}">下一页 »</a></li>
                 </c:if>
 
             </ul>
@@ -376,7 +376,7 @@
 
 <!--右侧-->
 <div class="ibx-advice" onmouseover="changeBackColor();" onmouseout="back2color();">
-    <a href="${ctx}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写梦"></span></a>
+    <a href="${app}/writedream?id=${user.id}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#1b1b1b;font-size:30px;" title="写梦"></span></a>
 </div>
 <%--尾部--%>
 <%--<%@ include file="foot.jsp"%>--%>
@@ -412,7 +412,7 @@
                     var endHtml = "</ul>";
                     if(ucList!=null){
                         $(ucList).each(function () {
-                            var contHtml = "<li class='dreamland-fix'><a href='${ctx}/watch?cid="+this.id+"'>"+this.title+"</a> <span class='bar-read'>评论 ("+this.commentNum+")</span>"
+                            var contHtml = "<li class='dreamland-fix'><a href='${app}/watch?cid="+this.id+"'>"+this.title+"</a> <span class='bar-read'>评论 ("+this.commentNum+")</span>"
                                 +"<span class='bar-commend'>"+this.upvote+"人阅读</span><hr/></li>";
                             startHtml = startHtml + contHtml;
                         });
@@ -475,8 +475,8 @@
                     var endHtml = "</ul>";
                     if(ucList!=null) {
                         $(ucList).each(function () {
-                            var contHtml = " <li class='dreamland-fix'> <a href='${ctx}/watch?cid="+this.id+"'>"+this.title+"</a><a href='${ctx}/deleteContent?cid="+this.id+"'><span class='bar-delete'>删除</span></a>"
-                                +"<a href='${ctx}/writedream?cid="+this.id+"'><span class='bar-update'>修改</span></a><hr/></li>";
+                            var contHtml = " <li class='dreamland-fix'> <a href='${app}/watch?cid="+this.id+"'>"+this.title+"</a><a href='${app}/deleteContent?cid="+this.id+"'><span class='bar-delete'>删除</span></a>"
+                                +"<a href='${app}/writedream?cid="+this.id+"'><span class='bar-update'>修改</span></a><hr/></li>";
                             startHtml = startHtml + contHtml;
                         });
                         var okHtml = startHtml + endHtml;
@@ -588,8 +588,8 @@
                     var endHtml = "</ul>";
                     if(ucList!=null) {
                         $(ucList).each(function () {
-                            var contHtml = " <li class='dreamland-fix'> <a href='${ctx}/watch?cid="+this.id+"'>"+this.title+"</a> <a href='${ctx}/deleteContent?cid="+this.id+"'><span class='bar-delete'>删除</span></a>"
-                                +"<a href='${ctx}/writedream?cid="+this.id+"'><span class='bar-update'>修改</span></a><hr/></li>";
+                            var contHtml = " <li class='dreamland-fix'> <a href='${app}/watch?cid="+this.id+"'>"+this.title+"</a> <a href='${app}/deleteContent?cid="+this.id+"'><span class='bar-delete'>删除</span></a>"
+                                +"<a href='${app}/writedream?cid="+this.id+"'><span class='bar-update'>修改</span></a><hr/></li>";
                             startHtml = startHtml + contHtml;
                         });
                         var okHtml = startHtml + endHtml;

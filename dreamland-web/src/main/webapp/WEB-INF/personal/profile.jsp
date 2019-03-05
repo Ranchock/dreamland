@@ -1,25 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="ctx" value="${pageContext.request.contextPath }"/>
+<c:set var="app" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>个人设置</title>
-    <link href="${ctx}/css/personal/profile.css" rel="stylesheet"/>
+    <link href="${app}/css/personal/profile.css" rel="stylesheet"/>
 
-    <link href="${ctx}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui.min.css" rel="stylesheet"/>
-    <link href="${ctx}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
-    <script type="text/javascript" src="${ctx}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="${ctx}/css/zui/js/zui.min.js"></script>
-    <link href="${ctx}/css/zui/lib/datetimepicker/datetimepicker.min.css" rel="stylesheet">
-    <script src="${ctx}/css/zui/lib/datetimepicker/datetimepicker.min.js"></script>
+    <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui.min.css" rel="stylesheet"/>
+    <link href="${app}/css/zui/css/zui-theme.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
+    <script type="text/javascript" src="${app}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${app}/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${app}/css/zui/js/zui.min.js"></script>
+    <link href="${app}/css/zui/lib/datetimepicker/datetimepicker.min.css" rel="stylesheet">
+    <script src="${app}/css/zui/lib/datetimepicker/datetimepicker.min.js"></script>
 </head>
 <body>
 <%--头部--%>
@@ -91,7 +91,7 @@
         <div id="base_content" style="margin-top: 40px;margin-left: 60px;font-size: 18px;" >
 
             <div>
-                <form id="userInfo_form" action="${ctx}/saveUserInfo" method="post">
+                <form id="userInfo_form" action="${app}/saveUserInfo" method="post">
 
                     姓名：<input id="name" name="name" value="${userInfo.name}"/><br/><br/>
 
@@ -116,7 +116,7 @@
             <div>
                 <form>
                 账号：${user.email}<br/><br/>
-                    密码：******  <a href="${ctx}/repassword"><span id="password_span" style="color: grey;margin-left: 142px" onmouseover="changeColor(this);" onmouseout="backColor(this);" >修改</span></a><br/><br/>
+                    密码：******  <a href="${app}/repassword"><span id="password_span" style="color: grey;margin-left: 142px" onmouseover="changeColor(this);" onmouseout="backColor(this);" >修改</span></a><br/><br/>
                     <c:if test="${not empty user.phone}">
                     手机号：${user.phone.substring(0,3)}****${user.phone.substring(7,11)}  <span id="phone_span" style="color: grey;margin-left: 68px" onmouseover="changeColor(this);" onmouseout="backColor(this);">修改</span>
                     </c:if>

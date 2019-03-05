@@ -379,6 +379,13 @@
         <artifactId>solr-solrj</artifactId>
         <version>7.3.0</version>
     </dependency>
+
+        <!-- 处理Solr异常java.lang.IllegalStateException: Failed to load ApplicationContext -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+        </dependency>
     </dependencies>
 
     <build>
