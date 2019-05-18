@@ -40,21 +40,21 @@
         <!-- 右侧导航栏 -->
         <div class="col-md-2" style="width:100px;height:610px;background-color:#fdfeff;right: 10px;">
             <div style="text-align: center;margin-top: 15px">
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="大数据" style="border:none;background:none;cursor:pointer;outline:none;">大数据</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序人生" style="border:none;background:none;cursor:pointer;outline:none;">程序人生</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="人工智能" style="border:none;background:none;cursor:pointer;outline:none;">人工智能</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="云计算" style="border:none;background:none;cursor:pointer;outline:none;">云计算</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="数据库" style="border:none;background:none;cursor:pointer;outline:none;">数据库</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="前端" style="border:none;background:none;cursor:pointer;outline:none;">前端</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="区块链" style="border:none;background:none;cursor:pointer;outline:none;">区块链</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="研发管理" style="border:none;background:none;cursor:pointer;outline:none;">研发管理</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="网络安全" style="border:none;background:none;cursor:pointer;outline:none;">网络安全</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="游戏开发" style="border:none;background:none;cursor:pointer;outline:none;">游戏开发</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="程序架构" style="border:none;background:none;cursor:pointer;outline:none;">程序架构</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="计算机基础" style="border:none;background:none;cursor:pointer;outline:none;">计算机基础</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="视频开发" style="border:none;background:none;cursor:pointer;outline:none;">视频开发</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="世界杯" style="border:none;background:none;cursor:pointer;outline:none;">世界杯</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="欧洲杯" style="border:none;background:none;cursor:pointer;outline:none;">欧洲杯</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="亚冠联赛" style="border:none;background:none;cursor:pointer;outline:none;">亚冠联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="欧冠联赛" style="border:none;background:none;cursor:pointer;outline:none;">欧冠联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="中超联赛" style="border:none;background:none;cursor:pointer;outline:none;">中超联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="西甲联赛" style="border:none;background:none;cursor:pointer;outline:none;">西甲联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="德甲联赛" style="border:none;background:none;cursor:pointer;outline:none;">德甲联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="英超联赛" style="border:none;background:none;cursor:pointer;outline:none;">英超联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="意甲联赛" style="border:none;background:none;cursor:pointer;outline:none;">意甲联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="法甲联赛" style="border:none;background:none;cursor:pointer;outline:none;">法甲联赛</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="足球空间" style="border:none;background:none;cursor:pointer;outline:none;">足球空间</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="球迷世界" style="border:none;background:none;cursor:pointer;outline:none;">球迷世界</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="足球新闻" style="border:none;background:none;cursor:pointer;outline:none;">足球新闻</button></li></form>
+                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="足球人生" style="border:none;background:none;cursor:pointer;outline:none;">足球人生</button></li></form>
                 <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="其他" style="border:none;background:none;cursor:pointer;outline:none;">其他</button></li></form>
-                <form method="post" action="${app}/index_list" id="indexCategoryForm"><li style="margin-top: 15px"><button type="submit" onclick="categoryForm();"  name="category" value="资讯" style="border:none;background:none;cursor:pointer;outline:none;">资讯</button></li></form>
                     <%--<c:forEach items="${allCategory}" var="category" varStatus="sta">
                         <form method="post" action="${app}/index_list" id="indexCategoryForm">
                             <li style="margin-top: 15px"><button type="submit" onclick="categoryForm();" id="category" name="category" value="${category.category}" style="border:none;background:none;cursor:pointer;outline:none;">${category.category}</button></li>
@@ -81,23 +81,23 @@
                         <!-- 轮播项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <a href="http://localhost:8080/watch?cid=54"><img alt="First slide" src="/images/lyh.jpg" style="width:835px ;height:336px "></a>
+                                <a href="http://localhost:8080/watch?cid=71"><img alt="First slide" src="/images/algl.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
-                                    <h3>谁能真正“撬动”微信？| 畅言</h3>
+                                    <h3>传尤文或与阿莱格里续约一年，否则小因扎吉可能接手</h3>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="http://localhost:8080/watch?cid=53"><img alt="Second slide" src="/images/ds.jpg" style="width:835px ;height:336px "></a>
+                                <a href="http://localhost:8080/watch?cid=70"><img alt="Second slide" src="/images/ywts.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
-                                    <h3>今日头条把微信按在地上摩擦</h3>
+                                    <h3>迪马济奥：国米尤文有意桑切斯，但高工资导致谈判停滞</h3>
                                     <p></p>
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="http://localhost:8080/watch?cid=44"><img alt="Third slide" src="images/coder.jpg" style="width:835px ;height:336px "></a>
+                                <a href="http://localhost:8080/watch?cid=72"><img alt="Third slide" src="images/aze.jpg" style="width:835px ;height:336px "></a>
                                 <div class="carousel-caption">
-                                    <h3>苦逼的程序员</h3>
+                                    <h3>天空体育总结：2018-19赛季英超十大趋势</h3>
                                     <p></p>
                                 </div>
                             </div>
@@ -173,17 +173,17 @@
                                 <i class="icon icon-comment-alt icon-2x"></i>
                             </a>
                         </div>
-                        <div class="single-share">
-                            <a class="share-wechat" data-type="wechat" title="分享到微信" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-wechat icon-2x"></i>
-                            </a>
-                            <a class="share-qq" data-type="qq" title="分享到QQ" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-qq icon-2x"></i>
-                            </a>
-                            <a  class="share-weibo" data-type="weibo" title="分享到微博" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">
-                                <i class="icon icon-weibo icon-2x"></i>
-                            </a>
-                        </div>
+                        <%--<div class="single-share">--%>
+                            <%--<a class="share-wechat" data-type="wechat" title="分享到微信" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">--%>
+                                <%--<i class="icon icon-wechat icon-2x"></i>--%>
+                            <%--</a>--%>
+                            <%--<a class="share-qq" data-type="qq" title="分享到QQ" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">--%>
+                                <%--<i class="icon icon-qq icon-2x"></i>--%>
+                            <%--</a>--%>
+                            <%--<a  class="share-weibo" data-type="weibo" title="分享到微博" rel="nofollow" style="margin-left:18px;color: grey;cursor: pointer; text-decoration:none;">--%>
+                                <%--<i class="icon icon-weibo icon-2x"></i>--%>
+                            <%--</a>--%>
+                        <%--</div>--%>
                         <br/>
                         &nbsp;
                         <div class="commentAll" style="display:none" id="comment_reply_${cont.id}">

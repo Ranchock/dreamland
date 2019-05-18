@@ -58,40 +58,65 @@ public class PersonalController extends BaseController{
     public String findList(Model model, @RequestParam(value = "id",required = false) String id,
                            @RequestParam(value = "pageNum",required = false) Integer pageNum ,
                            @RequestParam(value = "pageSize",required = false) Integer pageSize) {
-        User user = (User)getSession().getAttribute("user");
+        User user = (User) getSession().getAttribute("user");
         UserContent content = new UserContent();
         UserContent uc = new UserContent();
-        if(user!=null){
-            model.addAttribute( "user",user );
-            content.setuId( user.getId() );
+        if (user != null) {
+            model.addAttribute("user", user);
+            content.setuId(user.getId());
             uc.setuId(user.getId());
-        }else{
+        } else {
             return "../login";
         }
         log.info("初始化个人主页信息");
+        if (user.getId() == 1) {
+            //超级管理员
+            //查询文章分类
+            List<UserContent> categorys = userContentService.findAllCategory();
+            model.addAttribute("categorys", categorys);
 
-        //查询文章分类
-        List<UserContent> categorys = userContentService.findCategoryByUid(user.getId());
-        model.addAttribute( "categorys",categorys );
-        //发布的梦 不含私密文章
-        content.setPersonal("0");
-        pageSize = 8; //默认每页显示4条数据
-        PageHelper.Page<UserContent> page =  findAll(content,pageNum,  pageSize); //分页
+            //所有的文章
+            pageSize = 8; //默认每页显示4条数据
+            PageHelper.Page<UserContent> page = findAll(pageNum, pageSize); //分页
+            model.addAttribute("page", page);
 
-        model.addAttribute( "page",page );
+            //查询私密文章
+            uc.setPersonal("1");
+            PageHelper.Page<UserContent> page2 = findAll(uc, pageNum, pageSize);
+            model.addAttribute("page2", page2);
 
-        //查询私密文章
-        uc.setPersonal("1");
-        PageHelper.Page<UserContent> page2 =  findAll(uc,pageNum,  pageSize);
-        model.addAttribute( "page2",page2 );
+            //查询热门文章
+            UserContent uct = new UserContent();
+            uct.setPersonal("0");
+            PageHelper.Page<UserContent> hotPage = findAllByUpvote(uct, pageNum, pageSize);
+            model.addAttribute("hotPage", hotPage);
 
-        //查询热门文章
-        UserContent uct = new UserContent();
-        uct.setPersonal("0");
-        PageHelper.Page<UserContent> hotPage =  findAllByUpvote(uct,pageNum,  pageSize);
-        model.addAttribute( "hotPage",hotPage );
-        return "personal/personal";
+            return "personal/personal";
+        } else {
+            //查询文章分类
+            List<UserContent> categorys = userContentService.findCategoryByUid(user.getId());
+            model.addAttribute("categorys", categorys);
+            //发布的文章 不含私密文章
+            content.setPersonal("0");
+            pageSize = 8; //默认每页显示4条数据
+            PageHelper.Page<UserContent> page = findAll(content, pageNum, pageSize); //分页
+
+            model.addAttribute("page", page);
+
+            //查询私密文章
+            uc.setPersonal("1");
+            PageHelper.Page<UserContent> page2 = findAll(uc, pageNum, pageSize);
+            model.addAttribute("page2", page2);
+
+            //查询热门文章
+            UserContent uct = new UserContent();
+            uct.setPersonal("0");
+            PageHelper.Page<UserContent> hotPage = findAllByUpvote(uct, pageNum, pageSize);
+            model.addAttribute("hotPage", hotPage);
+            return "personal/personal";
+        }
     }
+
 
     /**
      * 根据分类名称查询所有文章
@@ -112,9 +137,16 @@ public class PersonalController extends BaseController{
             map.put("pageCate","fail");
             return map;
         }
-        pageSize = 8; //默认每页显示4条数据
-        PageHelper.Page<UserContent> pageCate = userContentService.findByCategory(category,user.getId(),pageNum,pageSize);
-        map.put("pageCate",pageCate);
+        if(user.getId() == 1) {
+            pageSize = 8; //默认每页显示4条数据
+            PageHelper.Page<UserContent> pageCate = userContentService.findOnlyByCategory(category,pageNum,pageSize);
+            map.put("pageCate",pageCate);
+        }else {
+            pageSize = 8; //默认每页显示4条数据
+            PageHelper.Page<UserContent> pageCate = userContentService.findByCategory(category,user.getId(),pageNum,pageSize);
+            map.put("pageCate",pageCate);
+        }
+
         return map;
     }
 

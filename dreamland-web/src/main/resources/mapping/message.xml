@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="wang.dreamland.www.dao.MessageMapper">
+
+
+
+    <insert id="insertMessage" parameterType="userMessage" useGeneratedKeys="true" keyProperty="id">
+        insert into user_message(id, u_id, message, img_url, nick_name) values(#{id}, #{uId},#{message}, #{imgUrl},#{nickName})
+    </insert>
+
+
+
+</mapper>

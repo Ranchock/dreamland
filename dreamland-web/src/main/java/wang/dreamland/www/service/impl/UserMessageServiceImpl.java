@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wang.dreamland.www.common.PageHelper;
 import wang.dreamland.www.common.PageHelper.Page;
+import wang.dreamland.www.dao.MessageMapper;
 import wang.dreamland.www.dao.UserMessageMapper;
+import wang.dreamland.www.entity.User;
 import wang.dreamland.www.entity.UserMessage;
 import wang.dreamland.www.service.UserMessageService;
 
@@ -14,7 +16,7 @@ import wang.dreamland.www.service.UserMessageService;
 public class UserMessageServiceImpl implements UserMessageService {
 
     @Autowired
-    private UserMessageMapper userMessageMapper;
+    private MessageMapper userMessageMapper;
 
 
     @Override
@@ -36,5 +38,9 @@ public class UserMessageServiceImpl implements UserMessageService {
         userMessageMapper.select(userMessage);
         Page endPage = PageHelper.endPage(); //结束分页
         return endPage;
+    }
+
+    public int add(UserMessage userMessage) {
+        return userMessageMapper.insertMessage(userMessage);
     }
 }

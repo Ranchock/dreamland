@@ -26,11 +26,11 @@
 <%@ include file="head.jsp"%>
 
 <!--中间内容-->
-<form id="write_form" name="w_form" role="w_form" class="writedream-form" action="doWritedream?cid=${cont.id}" method="post">
-<div class="writedream-context" style="margin-left: 360px;">
+<form id="write_form" name="w_form" role="w_form" class="writedream-form" action="doWritedream?cid=${cont.id}" method="post" style="background: #EBEBEB;">
+<div class="writedream-context" style="margin-left:5.5%;background: #EBEBEB;margin-top: 0px">
     <div style="margin-top: 20px;margin-left: 20px;position: absolute;">
-        <div class="dropdown dropdown-hover">
-            <button class="btn" type="button" data-toggle="dropdown" id="dream-diff" style="background-color:#EBEBEB"><span id="fen" >
+        <div class="dropdown dropdown-hover" style="background: #ffffff">
+            <button class="btn" type="button" data-toggle="dropdown" id="dream-diff" style="background-color:#ffffff"><span id="fen" >
             <c:if test="${cont.category != null}">
                 ${cont.category}
             </c:if>
@@ -41,27 +41,27 @@
            </span> <span class="caret"></span></button>
             <input id="hidden_cat" hidden="hidden" name="category" value="${cont.category}"/>
             <ul class="dropdown-menu" id="dreamland-category">
-                <li><a>大数据</a></li>
-                <li><a>程序人生</a></li>
-                <li><a>人工智能</a></li>
-                <li><a>云计算</a></li>
-                <li><a>数据库</a></li>
-                <li><a>前端</a></li>
-                <li><a>区块链</a></li>
-                <li><a>研发管理</a></li>
-                <li><a>网络安全</a></li>
-                <li><a>游戏开发</a></li>
-                <li><a>程序架构</a></li>
-                <li><a>物联网</a></li>
-                <li><a>计算机基础</a></li>
-                <li><a>视频开发</a></li>
+                <li><a>世界杯</a></li>
+                <li><a>欧洲杯</a></li>
+                <li><a>亚冠联赛</a></li>
+                <li><a>欧冠联赛</a></li>
+                <li><a>中超联赛</a></li>
+                <li><a>西甲联赛</a></li>
+                <li><a>德甲联赛</a></li>
+                <li><a>英超联赛</a></li>
+                <li><a>意甲联赛</a></li>
+                <li><a>法甲联赛</a></li>
+                <li><a>足球空间</a></li>
+                <li><a>球迷世界</a></li>
+                <li><a>足球新闻</a></li>
+                <li><a>足球人生</a></li>
                 <li><a>其他</a></li>
             </ul>
         </div>
     </div>
 
     <div style="float: left;margin-top: 20px;margin-left: 110px;background-color: #EBEBEB">
-        <input type="text" id="txtTitle" name="txtT_itle" value="${cont.title}" class="input-file-title" maxlength="100" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;输入文章标题"  style="height: 33px;width: 1080px;background-color:#EBEBEB;border: 0px" >
+        <input type="text" id="txtTitle" name="txtT_itle" value="${cont.title}" class="input-file-title" maxlength="100" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;输入文章标题"  style="height: 33px;width: 1080px;background-color:#ffffff;border: 0px" >
     </div>
     <!--富文本编辑器-->
     <div style="margin-top:20px ;float: left;margin-left: 20px">
@@ -152,6 +152,7 @@
             alert("文章内容为空！");
             return;
         }
+        //alert(1111);
         $("#write_form").submit();
 
     });

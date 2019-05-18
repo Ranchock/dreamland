@@ -27,7 +27,7 @@
 <br/><br/>
 
     <!-- 个人信息面板 -->
-    <div class="my_info" style="background:#ffffff;width: 1100px;height: 700px;margin-left: 430px">
+    <div class="my_info" style="background:#ffffff;width: 1100px;height: 700px;margin-left: 10%">
         <div style="width: 900px;height: 900px">
             <div class="geyan" style="position:absolute;width: 640px;height: 500px">
                 <h1 style="margin-left: 270px;margin-top: 30px">关于我</h1>

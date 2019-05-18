@@ -23,27 +23,19 @@
         <a href="me.jsp">关于作者</a>
         <a href="${app}/writedream?id=${user.id}">写博客</a>
         <!-- 搜索框 -->
-        <form method="post" action="${app}/index_list"  id="indexSearchForm" class="navbar-form navbar-right" role="search" style="margin-top: -35px;margin-right: 10px">
+        <form method="post" action="${app}/index_list"  id="indexSearchForm" class="navbar-form navbar-right" role="search" style="margin-top: 0px;margin-right: 0px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;">
             <div class="form-group" >
-                <input type="text" id="keyword" name="keyword" value="${keyword}" class="form-control" placeholder="请输入您要搜索的内容..." style="margin-top: 70px;margin-left: 200px;width: 268px;">
+                <input type="text" id="keyword" name="keyword" value="${keyword}" class="form-control" placeholder="请输入您要搜索的内容..." style="margin-top: 0px;margin-left: 0px;width: 268px;">
             </div>
-            <button type="submit" class="btn btn-default" onclick="searchForm();" style="margin-top: 70px;">搜索</button>
+            <button type="submit" class="btn btn-default" onclick="searchForm();" style="margin-top: 0px;">搜索</button>
            <%--<i onclick="searchForm();" class="icon icon-search" style="color: white"></i>--%>
         </form>
     </div>
 
-
-    <%--<ul class="layui-nav header-down-nav">--%>
-        <%--<li class="layui-nav-item"><a href="index.html" class="active">首页</a></li>--%>
-        <%--<li class="layui-nav-item"><a href="whisper.html">热门</a></li>--%>
-        <%--<li class="layui-nav-item"><a href="leacots.html">留言</a></li>--%>
-        <%--<li class="layui-nav-item"><a href="album.html">我的文章</a></li>--%>
-        <%--<li class="layui-nav-item"><a href="${app}/list?id=${user.id}">个人空间</a></li>--%>
-    <%--</ul>--%>
     <nav/>
     <p class="welcome-text">
 
-    <div style="position: absolute;margin-left: 980px;margin-top: -40px;">
+    <div style="position: absolute;margin-left: 980px;margin-top: -40px;height:85px;">
         <c:if test="${empty user}">
             <a name="tj_login" class="lb" href="login?error=login" style="color: #8f8680">[登录]</a>
             &nbsp;&nbsp;

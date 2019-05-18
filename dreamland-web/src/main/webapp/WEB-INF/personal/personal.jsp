@@ -37,7 +37,7 @@
 
     <!-- 左侧菜单栏-->
 <div class="author-card follow-box">
-    <div class="designer-card card-media" style="margin-left: 380px;" >
+    <div class="designer-card card-media" style="margin-left:4%;margin-top: 0.7%" >
         <input type="hidden" name="creator" value="13149346">
         <div class="avatar-container-80 center" >
             <a href="#" title="${user.nickName}" class="avatar" target="_blank">
@@ -102,7 +102,7 @@
 
 
     <!-- 博客分类 -->
-    <div class="dreamland-diff" style="margin-left: 0px;left: 430px;" >
+    <div class="dreamland-diff" style="margin-left: 7%;left: 0.5%;" >
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">博文分类</font>
         </div>
@@ -116,7 +116,7 @@
     </div>
 
     <!-- 我的关注 -->
-    <div class="dreamland-see" id="dreamland-see" style="   margin-top: 550px;margin-left: 0px;left: 430px;">
+    <div class="dreamland-see" id="dreamland-see" style="   margin-top: 550px;margin-left: 0px;left: 7%;">
         <div class="customer" style="height: 40px;background-color:#262626;line-height: 40px ">
             <font color="white" size="2.8" face="黑体" style="margin-top: 10px;margin-left: 10px">关注(8人)</font>
         </div>
@@ -193,7 +193,7 @@
         </div>
 
         <!-- 发布的文章 -->
-        <div id="release-dreamland" style="height: 700px;margin-top: 50px;width: 100%">
+        <div id="release-dreamland" style="height: 550px;margin-top: 50px;width: 100%">
             <ul style="font-size: 12px" id="release-dreamland-ul">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <li class="dreamland-fix">
@@ -206,7 +206,7 @@
 
             </ul>
 
-            <div style="float: left;position: absolute;bottom: 1080px;margin-left: 20px">
+            <div style="float: left;position: absolute;bottom: 50%;margin-left: 20px">
 
                 <ul class="pager pager-loose">
                     <c:if test="${page.pageNum <= 1}">
@@ -237,7 +237,7 @@
         </div>
 
         <!-- 管理文章 -->
-        <div id="update-dreamland" style="height: 700px;margin-top: 50px;width: 100%;display: none" >
+        <div id="update-dreamland" style="height: 550px;margin-top: 50px;width: 100%;display: none" >
             <ul style="font-size: 12px" id="update-dreamland-ul">
                 <c:forEach var="cont" items="${page.result}" varStatus="i">
                     <li class="dreamland-fix">
@@ -250,7 +250,7 @@
             </ul>
 
 
-            <div style="float: left;position: absolute;bottom: 1080px;margin-left: 20px" id="update-dreamland-div">
+            <div style="float: left;position: absolute;bottom: 50%;margin-left: 20px" id="update-dreamland-div">
                 <ul class="pager pager-loose" id="update-dreamland-fy">
                     <c:if test="${page.pageNum <= 1}">
                         <li class="previous"><a href="javascript:void(0);">« 上一页</a></li>
@@ -280,7 +280,7 @@
         </div>
 
         <!--私密文章-->
-        <div id="personal-dreamland" style="height: 700px;margin-top: 50px;width: 100%;display: none">
+        <div id="personal-dreamland" style="height: 550px;margin-top: 50px;width: 100%;display: none">
             <ul style="font-size: 12px">
                 <c:forEach var="cont" items="${page2.result}" varStatus="i">
                 <li class="dreamland-fix">
@@ -293,7 +293,7 @@
 
             </ul>
 
-            <div style="float: left;position: absolute;bottom: 1080px;margin-left: 20px">
+            <div style="float: left;position: absolute;bottom: 50%;margin-left: 20px">
             <ul class="pager pager-loose">
                 <c:if test="${page2.pageNum <= 1}">
                     <li class="previous"><a href="javascript:void(0);">« 上一页</a></li>
@@ -324,7 +324,7 @@
         </div>
 
         <!-- 热门博文 -->
-        <div class="hot-dreamland" style="height: 1020px">
+        <div class="hot-dreamland" style="height: 600px">
             <div style="text-align: center;margin-top: 20px">热文推荐
                 <span style="color:#B22222 ">hot</span>
             </div>

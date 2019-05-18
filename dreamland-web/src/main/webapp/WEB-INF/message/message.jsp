@@ -27,10 +27,10 @@
 <br/>
 
 <div class="message" style="width: 1096px" >
-    <div class="comments" style="margin-left: 450px;width: 1000px;background: #d8d8d8">
+    <div class="comments" style="margin-left: 17%;width: 1000px;background: #d8d8d8">
         <header>
-            <div class="pull-right"><a href="#commentReplyForm2" class="btn btn-primary"><i class="icon-comment-alt"></i> 发表评论</a></div>
-            <h3>所有评论</h3>
+            <div class="pull-right"><a href="#commentReplyForm2" class="btn btn-primary"><i class="icon-comment-alt"></i> 发表留言</a></div>
+            <h3>所有留言</h3>
         </header>
         <section class="comments-list">
             <div class="comment" style="background-color:rgba(255,255,255,0.3)">
@@ -40,23 +40,23 @@
                             <img src="${message.imgUrl}" style="margin-left: 10px"/>
                         </a>
                         <div class="content" style="padding-top: 0px;padding-bottom: 10px;">
-                            <div class="pull-right text-muted" style="margin-right: 30px">1 个小时前</div>
+                            <%--<div class="pull-right text-muted" style="margin-right: 30px">1 个小时前</div>--%>
                             <div style="margin-left: 10px"><a href="###"><strong>${message.nickName}</strong></a> </div>
                             <div class="text" style="margin-left: 10px">${message.message}</div>
-                            <div class="actions">
-                                <a href="##" style="margin-left: 10px">回复</a>
-                            </div>
+                            <%--<div class="actions">--%>
+                                <%--<a href="##" style="margin-left: 10px">回复</a>--%>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </c:forEach>
                 </div>
-
+        </section>
     </div>
 </div>
 </section>
 
 <!--分页信息..-->
-<div id="page-info" style="margin-left:500px;margin-top:15px;position: absolute;width:855px;background-color: #EBEBEB;height: 80px;left: 0px;">
+<div id="page-info" style="margin-left:18%;margin-top:15px;position: absolute;width:855px;background-color: #EBEBEB;height: 80px;left: 0px;">
     <ul class="pager pager-loose">
         <c:if test="${page.pageNum <= 1}">
             <li><a href="javascript:void(0);">« 上一页</a></li>
@@ -84,49 +84,64 @@
 </div>
 
 <footer>
-    <div class="reply-form" id="commentReplyForm2" style="width: 1096px;margin-left: 400px;margin-top: 80px;">
+    <div class="reply-form" id="commentReplyForm2" style="width: 1096px;margin-left: 10%;margin-top: 80px;">
         <a href="###" class="avatar"><i class="icon-user icon-2x"></i></a>
-        <form class="form">
+        <form class="form" name="m_form" role="m_form" class="message-form" action="save_message?mid=${message.id}" method="post">
             <div class="form-group">
-                <textarea class="form-control new-comment-text" rows="2" placeholder="撰写评论..."></textarea>
+                <textarea class="form-control new-comment-text" rows="2" placeholder="撰写留言..." name="content">${message.content}</textarea>
             </div>
             <div class="form-group comment-user">
                 <div class="row">
-                    <%--<div class="col-md-3">
-                        <span class="pull-right">或者</span>
-                        <a href="#">登录</a> &nbsp;<a href="##">注册</a>
-                    </div>--%>
-                    <%--<div class="col-md-7">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="nameInputEmail1" placeholder="输入评论显示名称">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="输入电子邮件（不会在评论显示）">
-                        </div>
-                    </div>--%>
-                    <div class="col-md-2"><button type="submit" class="btn btn-block btn-primary" style="margin-left: 800px;"><i class="icon-ok"></i></button></div>
+                    <div class="col-md-2"><button type="submit" class="btn btn-block btn-primary" id="btn_message" style="margin-left: 800px;"><i class="icon-ok"></i></button></div>
                 </div>
             </div>
         </form>
     </div>
 </footer>
 </div>
-<div class="commentAll" style="display:none" id="comment_reply_${cont.id}">
-    <!--评论区域 begin-->
-    <div class="reviewArea clearfix">
-                                <textarea id="comment_input_${cont.id}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)" style="
-    padding-top: 10px;
-    padding-bottom: 10px;"></textarea>
-        <a class="plBtn" id="comment_${cont.id}" onclick="_comment(${cont.id},${user.id==null?0:user.id},${cont.uId})" style="color: white;cursor: pointer;">评论</a>
-    </div>
-    <!--评论区域 end-->
-    <div class="comment-show-first" id="comment-show-${cont.id}">
+<%--<form id="message_form" name="m_form" role="m_form" class="message-form" action="save_Message?mid=${message.id}" method="post">--%>
+<%--<div class="commentAll" style="display:none" id="comment_reply_${message.id}">--%>
+    <%--<!--评论区域 begin-->--%>
+    <%--<div class="reviewArea clearfix">--%>
+                                <%--<textarea id="comment_input_${message.id}"  class="content comment-input" placeholder="输入内容&hellip;" onkeyup="keyUP(this)" style="--%>
+    <%--padding-top: 10px;--%>
+    <%--padding-bottom: 10px;">${message.content}</textarea>--%>
+        <%--<a class="plBtn" id="comment_${message.id}" onclick="_comment${message.id}" style="color: white;cursor: pointer;">评论</a>--%>
+    <%--</div>--%>
+    <%--<!--评论区域 end-->--%>
+    <%--<div class="comment-show-first" id="comment-show-${message.id}">--%>
 
-    </div>
+    <%--</div>--%>
 
-</div>
-</div>
+<%--</div>--%>
+<%--</div>--%>
+<%--</form>--%>
 
 <%@ include file="foot.jsp"%>
 </body>
+<script>
+    //发表文章点击事件
+    $("#btn_message").click(function(){
+        // var val =  $("#fen").html();
+        // if(val.trim()=='博客分类'){
+        //     alert("请选择博客分类！");
+        //     return;
+        // }
+        //
+        // var tit = $("#txtTitle").val();
+        // if(tit == null || tit.trim() == ""){
+        //     alert("请输入文章标题！");
+        //     return;
+        // }
+        // editor.sync();
+        // var v1 = $("#content").val();
+        // if(v1 == null || v1.trim() == ""){
+        //     alert("文章内容为空！");
+        //     return;
+        // }
+        alert(1111);
+        $("#write_form").submit();
+
+    });
+</script>
 </html>

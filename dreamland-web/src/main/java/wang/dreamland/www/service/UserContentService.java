@@ -69,6 +69,12 @@ public interface UserContentService {
     List<UserContent> findCategoryByUid(Long uid);
 
     /**
+     * 根据管理员id查询出所有文章分类
+     * @return
+     */
+    List<UserContent> findCategory();
+
+    /**
      * 根据文章分类查询所有文章
      * @param category
      * @param pageNum

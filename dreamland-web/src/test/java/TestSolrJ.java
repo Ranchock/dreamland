@@ -28,12 +28,13 @@ public class TestSolrJ extends AbstractJUnit4SpringContextTests {
 
         //1.创建一个文档对象
         SolrInputDocument inputDocument = new SolrInputDocument();
-        inputDocument.addField( "id", "32" );
+        inputDocument.addField( "id", "33" );
         inputDocument.addField( "item_title", "ssm项目开发实战" );
+        inputDocument.addField( "item_content", "ssm指的是:Spring MVC + Spring + Mybatis" );
         inputDocument.addField( "item_image", "www.ssm.png" );
         inputDocument.addField( "author", "wly" );
         //2.将文档写入索引库中
-        solrServer.add(inputDocument);
+        solrServer.add( inputDocument );
         //3.提交
         solrServer.commit();
     }

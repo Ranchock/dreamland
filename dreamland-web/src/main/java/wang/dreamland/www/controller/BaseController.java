@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * Created by wly on 2018/1/9.
- */
 @Component
 public class BaseController {
     private static final String[] HEADERS_TO_TRY = {

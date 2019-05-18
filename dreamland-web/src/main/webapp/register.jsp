@@ -7,8 +7,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>注册页面</title>
-	<meta name="keywords" content="梦境网">
-	<meta name="content" content="梦境网">
+	<meta name="keywords" content="FootBall Blog">
+	<meta name="content" content="FootBall Blog">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <link type="text/css" rel="stylesheet" href="${app}/css/dreamland.css">
@@ -21,7 +21,7 @@
     <div class="zhuce_kong" id="dre_div">
     	<div class="zc">
         	<div class="bj_bai" style="height: 408px">
-            <h3>欢迎注册</h3>
+            <h3 style="height:50px">欢迎注册</h3>
        	  	  <form action="${app}/doRegister" method="post" id="registerForm">
                   <span id="reg_span"></span>
                 <input id="phone" name="phone" type="text" class="kuang_txt phone" placeholder="手机号" onblur="checkPhone();">
@@ -46,7 +46,7 @@
                   </div>
 
                 <div>
-               		<input id="protocol" type="checkbox" onclick="checkProtocol();"><span>已阅读并同意<a href="#" target="_blank" ><span class="lan">《梦境网用户协议》</span></a></span>
+               		<input id="protocol" type="checkbox" onclick="checkProtocol();"><span>已阅读并同意<a href="#" target="_blank" ><span class="lan">《Blog用户协议》</span></a></span>
                     <%--<br/>--%>
                     <span id="protocol_span"></span>
                 </div>
@@ -203,6 +203,8 @@
         }
         if( len < 6){
             $("#password_span").text("密码长度少于6位，请重新输入！").css("color","red");
+        }else if( len > 20){
+            $("#password_span").text("密码长度多于20位，请重新输入！").css("color","red");
         }else {
             if(/^[0-9]*$/.test(pwd) || /^[A-Za-z]+$/.test(pwd)){
 
@@ -361,7 +363,7 @@
                 dataType: 'json',
                 success: function (data) {
                     var val = data['message'];
-                    alert(data['message']);
+                    //alert(data['message']);
                     //alert(val);
                     if (val == "success") {
                         $("#code_span").text("√").css("color","green");
@@ -394,7 +396,7 @@
     //提交注册信息
     $("#to_register").click (function(){
         if(!checkProtocol()){
-            $("#protocol_span").text("请勾选\"阅读并接受梦境网用户协议\"！").css("color","red");
+            $("#protocol_span").text("请勾选\"阅读并接受FootBall Blog用户协议\"！").css("color","red");
         }else{
             $("#protocol_span").text("");
         }

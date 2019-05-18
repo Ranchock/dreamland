@@ -7,7 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <title>个人设置</title>
-    <link href="${app}/css/personal/profile.css" rel="stylesheet"/>
+    <%--<link href="${app}/css/personal/profile.css" rel="stylesheet"/>--%>
+
+    <!--头部and尾部 -->
+    <link rel="stylesheet" type="text/css" href="../res/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/main.css">
+    <script type="text/javascript" src="${app}/js/skdslider.min.js"></script>
 
     <link href="${app}/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="${app}/css/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
@@ -27,7 +32,7 @@
 
     <!-- -->
 <div style="margin-left: 100px;margin-top: 80px;" class="main-content">
-    <div style="width: 300px;height: 600px;background-color:#D1D1D1 ;float: left;margin-left: 340px">
+    <div style="width: 300px;height: 600px;background-color:#D1D1D1 ;float: left;margin-left: 4%">
         <div>
         <div class="personal-image" style="width: 300px;height: 240px;">
 
@@ -36,7 +41,7 @@
                     <input type="file"  id="change-img" name="uploadImg" onchange="changeImg();" style="display:none;">
                 </form>
 
-            <div style="float: left;margin-left: 120px;margin-top: 10px;font-size: 18px">
+            <div style="float: left;margin-left: 97px;margin-top: 10px;font-size: 18px">
                 ${user.nickName}
             </div>
 
@@ -192,6 +197,8 @@
     </div>
 
 </div>
+<%--尾部--%>
+<%--<%@ include file="foot.jsp"%>--%>
 </body>
 <script>
 

@@ -105,6 +105,11 @@ public class UserContentServiceImpl implements UserContentService {
     }
 
     @Override
+    public List<UserContent> findCategory() {
+        return userContentMapper.findCategory();
+    }
+
+    @Override
     public Page<UserContent> findByCategory(String category, Long uid, Integer pageNum, Integer pageSize) {
         UserContent userContent = new UserContent();
         if(StringUtils.isNotBlank(category) && !"null".equals(category)) {

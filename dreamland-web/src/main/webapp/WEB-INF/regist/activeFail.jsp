@@ -69,7 +69,7 @@
 <body>
 <div class="active-head">
     <div style="line-height: 44px;margin-left: 5px">
-        <span style="color: white;font-family: Arial;font-size: 18px">Dreamland - 梦境网激活失败页面</span>
+        <span style="color: white;font-family: Arial;font-size: 18px">Dreamland - FootBall Blog激活失败页面</span>
     </div>
     <div class="content">
         <div class="single-clear">
@@ -195,9 +195,9 @@
                 </p>
                 <p>
                     <span>违法和不良信息举报电话：010-xxxxxxx</span>
-                    <span>邮箱：xxx@dreamland.wang</span>
+                    <span>邮箱：xxx@FootBallBlog.wang</span>
                 </p>
-                <p style="margin-top: 8px">&copy;www.dreamland.wang 梦境网版权所有</p>
+                <p style="margin-top: 8px">&copy;www.dreamland.wang FootBall Blog版权所有</p>
             </div>
         </div>
 

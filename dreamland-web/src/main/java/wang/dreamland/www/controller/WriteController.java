@@ -22,7 +22,6 @@ public class WriteController extends BaseController {
     private final static Logger log = Logger.getLogger(WriteController.class);
     @Autowired
     private UserContentService userContentService;
-
     @Autowired
     private SolrService solrService;
 
@@ -62,7 +61,7 @@ public class WriteController extends BaseController {
                                @RequestParam(value = "content",required = false) String content,
                                @RequestParam(value = "private_dream",required = false) String private_dream
                                ) {
-        log.info( "进入写梦Controller" );
+        log.info( "进入写文章Controller" );
         User user = (User)getSession().getAttribute("user");
         if(user == null){
             //未登录

@@ -24,5 +24,12 @@ public interface UserMessageService {
     PageHelper.Page<UserMessage> findMessageByUId(Long uid, Integer pageNum, Integer pageSize);
 
 
+    /**
+     * 添加评论
+     * @param userMessage
+     * @return
+     */
+    int add(UserMessage userMessage);
+
 
 }

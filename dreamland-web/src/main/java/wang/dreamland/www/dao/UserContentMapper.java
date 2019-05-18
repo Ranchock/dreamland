@@ -19,6 +19,12 @@ public interface UserContentMapper extends Mapper<UserContent> {
     List<UserContent> findCategoryByUid(@Param("uid")long uid);
 
     /**
+     * 根据用户id查询出文章分类
+     * @return
+     */
+    List<UserContent> findCategory();
+
+    /**
      *  插入文章并返回主键id 返回类型只是影响行数  id在UserContent对象中
      * @param userContent
      * @return
@@ -32,6 +38,8 @@ public interface UserContentMapper extends Mapper<UserContent> {
     List<UserContent> findByJoin(UserContent userContent);
 
     List<UserContent> findAllCategory();
+
+
 
 
 }
